@@ -44,11 +44,12 @@ class PublicApi {
   ///
   /// return : true 表示登录成功
   Future<bool> login(String username, String password,
-      {ValueChanged<String>? tokenHandle, ValueChanged<String>? loginFail}) async {
+      {ValueChanged<String>? tokenHandle,
+      ValueChanged<String>? loginFail}) async {
     final result = await util.post(
       '/api/user/login',
       data: {'loginNumber': username, 'password': password},
-      error: (int code, String msg,data) {
+      error: (int code, String msg, data) {
         loginFail?.call(msg);
       },
       isTaokeApi: false,
@@ -83,8 +84,8 @@ class PublicApi {
   Future<List<SystemPic>> getAvaPics() async {
     final resutl = await util.get('$userApiUrl/ava-pics', isTaokeApi: false);
     return resutl.isNotEmpty
-        ? List<SystemPic>.from(
-            (jsonDecode(resutl) as List<dynamic>).map((e) => SystemPic.fromJson(e))).toList()
+        ? List<SystemPic>.from((jsonDecode(resutl) as List<dynamic>)
+            .map((e) => SystemPic.fromJson(e))).toList()
         : <SystemPic>[];
   }
 
@@ -94,16 +95,22 @@ class PublicApi {
   ///
   /// [roomName] : 房间名字
   ///
-  Future<GameRoomModel?> createRoom(int userId, String roomName, {ApiError? error}) async {
+  Future<GameRoomModel?> createRoom(int userId, String roomName,
+      {ApiError? error}) async {
     final result = await util.post('$userApiUrl/create-room',
-        isTaokeApi: false, data: {'name': roomName, 'userId': userId}, error: error);
+        isTaokeApi: false,
+        data: {'name': roomName, 'userId': userId},
+        error: error);
 
-    return result.isNotEmpty ? GameRoomModel.fromJson(jsonDecode(result)) : null;
+    return result.isNotEmpty
+        ? GameRoomModel.fromJson(jsonDecode(result))
+        : null;
   }
 
   /// 获取所有的房间
   Future<List<GameRoomModel>> getAllRoom({ApiError? error}) async {
-    final result = await util.get('$userApiUrl/rooms', isTaokeApi: false, error: error);
+    final result =
+        await util.get('$userApiUrl/rooms', isTaokeApi: false, error: error);
     if (result.isNotEmpty) {
       return GameRoomModel.covertFromRoomsApi(result);
     }
@@ -112,7 +119,8 @@ class PublicApi {
 
   /// 获取当前在线的总人数
   Future<String> getInlineUserCount() async {
-    final result = await util.get('$userApiUrl/inline-count', isTaokeApi: false);
+    final result =
+        await util.get('$userApiUrl/inline-count', isTaokeApi: false);
     return result;
   }
 
@@ -120,14 +128,13 @@ class PublicApi {
   ///
   /// 此api需要用户登录授权
   Future<void> removeRoom(String name) async {
-    await util.post('$userApiUrl/remove-room', data: {'name': name}, isTaokeApi: false);
+    await util.post('$userApiUrl/remove-room',
+        data: {'name': name}, isTaokeApi: false);
   }
 
   /// 进入一个房间
-  Future<void> inRoom(String userId,String roomName) async {
-    await util.post('$userApiUrl/in-room',data: {
-      'userId':userId,
-      'roomName':roomName
-    },isTaokeApi: false);
+  Future<void> inRoom(String userId, String roomName) async {
+    await util.post('$userApiUrl/in-room',
+        data: {'userId': userId, 'roomName': roomName}, isTaokeApi: false);
   }
 }

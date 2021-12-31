@@ -29,7 +29,11 @@ class DdTaokeUtil {
   OnRequestStart? _onStart;
 
   /// 初始化服务器地址和端口
-  void init(String host, String port, {String? proxy, OnRequestStart? onStart, bool debug = true,bool printParams = true}) {
+  void init(String host, String port,
+      {String? proxy,
+      OnRequestStart? onStart,
+      bool debug = true,
+      bool printParams = true}) {
     _print = debug;
     _showParams = printParams;
     _ip = host;
@@ -47,9 +51,15 @@ class DdTaokeUtil {
   ///error 请求错误回传
   ///
   Future<String> get(String url,
-      {Map<String, dynamic>? data, ApiError? error, OnRequestStart? onStart, bool? isTaokeApi, ResultDataMapHandle? mapData, CancelToken? cancelToken, ValueChanged<dynamic>? otherDataHandle}) async {
+      {Map<String, dynamic>? data,
+      ApiError? error,
+      OnRequestStart? onStart,
+      bool? isTaokeApi,
+      ResultDataMapHandle? mapData,
+      CancelToken? cancelToken,
+      ValueChanged<dynamic>? otherDataHandle}) async {
     Logger().d(url);
-    if(_showParams && data!=null){
+    if (_showParams && data != null) {
       Logger().wtf(jsonEncode(data));
     }
     var _dio = createInstance()!;
@@ -59,8 +69,10 @@ class DdTaokeUtil {
     }
 
     if (!kIsWeb) {
-      (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
-        client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+      (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+          (HttpClient client) {
+        client.badCertificateCallback =
+            (X509Certificate cert, String host, int port) => true;
         return client;
       };
     }
@@ -73,7 +85,8 @@ class DdTaokeUtil {
     _onStart?.call(_dio); // 全局的
     onStart?.call(_dio); // 局部的
     try {
-      final response = await _dio.get<String>(url, queryParameters: data, cancelToken: cancelToken);
+      final response = await _dio.get<String>(url,
+          queryParameters: data, cancelToken: cancelToken);
       if (response.statusCode == 200 && response.data != null) {
         final result = ddTaokeResultFromJson(response.data!);
         if (result.state == 200) {
@@ -89,13 +102,14 @@ class DdTaokeUtil {
           }
           return '';
         } else {
-          errorHandle(error, result.state, result.message,data: result.data);
+          errorHandle(error, result.state, result.message, data: result.data);
           return '';
         }
       }
     } on DioError catch (e) {
       if (e.response != null) {
-        errorHandle(error, e.response!.statusCode??-1, e.response!.statusMessage??'请求失败');
+        errorHandle(error, e.response!.statusCode ?? -1,
+            e.response!.statusMessage ?? '请求失败');
       }
       errorHandle(error, 500, '${e.toString()}');
     }
@@ -104,12 +118,19 @@ class DdTaokeUtil {
   }
 
   /// POST 请求
-  Future<String> post(String url, {Map<String, dynamic>? data, OnRequestStart? onStart, ApiError? error, bool? isTaokeApi, ValueChanged<dynamic>? otherDataHandle}) async {
+  Future<String> post(String url,
+      {Map<String, dynamic>? data,
+      OnRequestStart? onStart,
+      ApiError? error,
+      bool? isTaokeApi,
+      ValueChanged<dynamic>? otherDataHandle}) async {
     var _dio = createInstance()!;
     if (_proxy.isNotEmpty) addProxy(_dio, _proxy);
     if (!kIsWeb) {
-      (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (HttpClient client) {
-        client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+      (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+          (HttpClient client) {
+        client.badCertificateCallback =
+            (X509Certificate cert, String host, int port) => true;
         return client;
       };
     }
@@ -122,10 +143,17 @@ class DdTaokeUtil {
     }
 
     try {
-      final response = await _dio.post(url, data: data, options: Options(method: 'POST', followRedirects: false, contentType: 'application/json'));
+      final response = await _dio.post(url,
+          data: data,
+          options: Options(
+              method: 'POST',
+              followRedirects: false,
+              contentType: 'application/json'));
 
       if (response.statusCode == 200 && response.data != null) {
-        final _data = response.data is Map<String, dynamic> ? jsonEncode(response.data) : response.data;
+        final _data = response.data is Map<String, dynamic>
+            ? jsonEncode(response.data)
+            : response.data;
         final result = ddTaokeResultFromJson(_data);
         if (result.state == 200) {
           if (result.data != null) {
@@ -133,13 +161,14 @@ class DdTaokeUtil {
           }
           return '';
         } else {
-          errorHandle(error, result.state, result.message,data: result.data);
+          errorHandle(error, result.state, result.message, data: result.data);
           return '';
         }
       }
     } on DioError catch (e) {
       if (e.response != null) {
-        errorHandle(error, e.response!.statusCode??-1, e.response!.statusMessage??'请求失败');
+        errorHandle(error, e.response!.statusCode ?? -1,
+            e.response!.statusMessage ?? '请求失败');
       }
       errorHandle(error, 500, '${e.toString()}');
     }
@@ -148,9 +177,9 @@ class DdTaokeUtil {
   }
 
   /// 请求没有正常执行
-  void errorHandle(ApiError? error, int code, String message,{dynamic data}) {
+  void errorHandle(ApiError? error, int code, String message, {dynamic data}) {
     if (error != null) {
-      error(code, message,data);
+      error(code, message, data);
     } else {
       print('请求失败:code=$code.message=$message');
     }
@@ -160,14 +189,17 @@ class DdTaokeUtil {
   Dio? createInstance() {
     if (dio == null) {
       final url = '$_ip:$_port';
-      BaseOptions options = BaseOptions(baseUrl: url, connectTimeout: 20000,);
+      BaseOptions options = BaseOptions(
+        baseUrl: url,
+        connectTimeout: 20000,
+      );
       dio = Dio(options);
     }
     return dio;
   }
 }
 
-typedef ApiError = void Function(int stateCode, String message,dynamic data);
+typedef ApiError = void Function(int stateCode, String message, dynamic data);
 
 void addProxy(Dio dio, String ip) {
   var client;
