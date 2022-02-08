@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:logger/logger.dart';
+
 import 'model/activity_link_result.dart';
 import 'model/brand_list_model.dart';
 import 'model/category.dart';
@@ -121,7 +123,7 @@ class DdTaokeSdk {
       {required String productId, ApiError? apiError}) async {
     final response =
         await util.get('/product-detail-all/$productId', error: apiError);
-    var result;
+    DetailBaseDataResult? result;
 
     if (response.isNotEmpty) {
       final map = jsonDecode(response);
@@ -143,10 +145,28 @@ class DdTaokeSdk {
     return result;
   }
 
+  /// 获取专题商品
+  Future<List<Product>> getTopicProducts(String topic,int pageSize,int page,{ApiError? error}) async {
+    const url = '/topic-goods';
+    final response = await util.get(url,error: error,data: {
+      'topicId': topic,
+      'pageSize': pageSize,
+      'pageId': page
+    });
+    Logger().wtf(jsonDecode(response));
+    try{
+      final map = jsonDecode(response);
+      final list = map['list'] as List<dynamic>;
+      return list.covertToProducts();
+    }catch(_){
+      return [];
+    }
+  }
+
   /// 获取高佣精选商品
   Future<HighCommissionResult?> getHighCommissionProducts(
       {required HighCommissionParam param, ApiError? error}) async {
-    final url = '/high-commission';
+    const url = '/high-commission';
     final response = await util.get(url, data: param.toJson(), error: error);
     return response.isNotEmpty ? highCommissionResultFromJson(response) : null;
   }
@@ -156,7 +176,7 @@ class DdTaokeSdk {
   /// [productId] 大淘客商品id或者淘宝商品id
   Future<ProductMaterialResult?> getProductMaterial(
       {required String productId, ApiError? error}) async {
-    final url = '/product-material';
+    const url = '/product-material';
     final response = await util.get(url, data: {"id": productId}, error: error);
     return (response.isNotEmpty
         ? (productMaterialResultFromJson(response).isNotEmpty
@@ -168,7 +188,7 @@ class DdTaokeSdk {
   /// hot-search-worlds
   /// 热搜榜
   Future<List<HotSearchWorlds>> getHotSearchWorlds({ApiError? error}) async {
-    final url = '/hot-search-worlds';
+    const url = '/hot-search-worlds';
     final response = await util.get(url, error: error);
     return response.isNotEmpty ? hotSearchWorldsFromJson(response) : [];
   }
@@ -176,7 +196,7 @@ class DdTaokeSdk {
   /// 获取线报
   Future<Map<String, dynamic>?> getSpeiderList(
       {required SpeiderParam param, ApiError? error}) async {
-    final url = '/speider';
+    const url = '/speider';
     final response = await util.get(url, data: param.toJson(), error: error);
     return response.isNotEmpty ? jsonDecode(response) : null;
   }
@@ -192,7 +212,7 @@ class DdTaokeSdk {
   /// 超级搜索
   Future<SuperSearchResult?> superSearch(
       {required SuperSearchParam param, ApiError? error}) async {
-    final url = '/super-search';
+    const url = '/super-search';
     final response = await util.get(url, data: param.toJson(), error: error);
     return response.isNotEmpty ? superSearchResultFromJson(response) : null;
   }
@@ -201,7 +221,7 @@ class DdTaokeSdk {
   /// /taobao-oneprice_product
   Future<List<TaobaoOnePriceResult>> getTaobaoOnepriceProducts(
       {required TaobaoOnePriceParam param, ApiError? error}) async {
-    final url = '/taobao-oneprice_product';
+    const url = '/taobao-oneprice_product';
     final response = await util.get(url, data: param.toJson(), error: error);
     return response.isNotEmpty ? taobaoOnePriceResultFromJson(response) : [];
   }
@@ -209,7 +229,7 @@ class DdTaokeSdk {
   /// 朋友圈文案
   Future<WechatResult?> getWechat(
       {required WechatParam param, ApiError? error}) async {
-    final url = '/wechat';
+    const url = '/wechat';
     final responst = await util.get(url, data: param.toJson(), error: error);
     return responst.isNotEmpty
         ? WechatResult.fromJson(jsonDecode(responst))
@@ -219,7 +239,7 @@ class DdTaokeSdk {
   /// 获取榜单商品
   Future<List<Product>> getTopProducts(
       {required TopParam param, ApiError? error}) async {
-    final url = '/top';
+    const url = '/top';
     final response = await util.get(url, error: error, data: param.toJson());
     return response.isNotEmpty ? getProductsWithResponse(response) : [];
   }
@@ -227,7 +247,7 @@ class DdTaokeSdk {
   /// 九块九包邮
   Future<NineNineResult?> getNineNineProducts(
       {required NineNineParam param, ApiError? error}) async {
-    final url = '/nine-nine-goods';
+    const url = '/nine-nine-goods';
     final response = await util.get(url, error: error, data: param.toJson());
     return response.isNotEmpty ? nineNineResultFromJson(response) : null;
   }
@@ -236,7 +256,7 @@ class DdTaokeSdk {
   @Deprecated('商品评论因为采集受限所以暂时没有数据')
   Future<String?> getProductComments(
       {required CommentParam param, ApiError? error}) async {
-    final url = '/comment';
+    const url = '/comment';
     final response = await util.get(url, error: error, data: param.toJson());
     return response;
   }
@@ -244,7 +264,7 @@ class DdTaokeSdk {
   /// 店铺转链
   Future<String> shopConvert(
       {required ShopConvertParam param, ApiError? error}) async {
-    final url = '/shop-convert';
+    const url = '/shop-convert';
     final response = await util.get(url, error: error, data: param.toJson());
     Get.log(response);
     return response;
@@ -254,7 +274,7 @@ class DdTaokeSdk {
   /// /subdivision-goods
   Future<List<Product>> getSubdivisionProducts(
       {required String subdivisionId, ApiError? error}) async {
-    final url = '/subdivision-goods';
+    const url = '/subdivision-goods';
     final response = await util
         .get(url, error: error, data: {'subdivisionId': subdivisionId});
     return response.isNotEmpty ? getProductsWithResponse(response) : [];
@@ -264,7 +284,7 @@ class DdTaokeSdk {
   /// discount-goods
   Future<DiscountTwoResult?> getDiscountTwoProduct(
       {required DiscountTwoParam param, ApiError? error}) async {
-    final url = '/discount-goods';
+    const url = '/discount-goods';
     final response = await util.get(url, error: error, data: param.toJson());
     return response.isNotEmpty ? discountTwoResultFromJson(response) : null;
   }
@@ -275,7 +295,7 @@ class DdTaokeSdk {
     String sessions = '',
     ApiError? error,
   }) async {
-    final url = '/halfday-goods';
+    const url = '/halfday-goods';
     final response = await util.get(url,
         error: error, data: sessions.isNotEmpty ? {'sessions': sessions} : {});
     return response.isNotEmpty ? halfdayResultFromJson(response) : null;
@@ -287,7 +307,7 @@ class DdTaokeSdk {
       {String productId = '',
       String taobaoGoodsId = '',
       ApiError? error}) async {
-    final url = '/goods-history';
+    const url = '/goods-history';
     final response = await util.get(url,
         error: error, data: {'id': productId, 'goodsId': taobaoGoodsId});
     return response.isNotEmpty ? historyPriceResultFromJson(response) : null;
@@ -297,7 +317,7 @@ class DdTaokeSdk {
   /// live-data
   Future<LiveDataResult?> getLiveDataProducts(
       {String date = '', String sort = '0', ApiError? error}) async {
-    final url = '/live-data';
+    const url = '/live-data';
     final response =
         await util.get(url, data: {'date': date, 'sort': sort}, error: error);
     return response.isNotEmpty ? liveDataResultFromJson(response) : null;
@@ -307,7 +327,7 @@ class DdTaokeSdk {
   /// hot-day
   Future<HotdayResult?> getHotDayProduct(
       {required HotdayParam param, ApiError? error}) async {
-    final url = '/hot-day';
+    const url = '/hot-day';
     final response = await util.get(url, data: param.toJson(), error: error);
     return response.isNotEmpty ? hotdayResultFromJson(response) : null;
   }
@@ -315,7 +335,7 @@ class DdTaokeSdk {
   /// 咚咚抢
   /// ddq
   Future<DdqResult?> getDdq({String roundTime = '', ApiError? error}) async {
-    final url = '/ddq';
+    const url = '/ddq';
     final response =
         await util.get(url, data: {'roundTime': roundTime}, error: error);
     return response.isNotEmpty ? ddqResultFromJson(response) : null;
@@ -324,7 +344,7 @@ class DdTaokeSdk {
   /// 官方活动转链
   Future<ActivityLinkResult?> getActivityLink(ActivityLinkParam param,
       {ApiError? error}) async {
-    final url = '/activity-link';
+    const url = '/activity-link';
     final response = await util.get(url, data: param.toJson(), error: error);
     return response.isNotEmpty
         ? ActivityLinkResult.fromJson(jsonDecode(response))
@@ -334,7 +354,7 @@ class DdTaokeSdk {
   /// 获取搜索推荐词语
   Future<List<String>> getSuggest({ApiError? apiError}) async {
     var result = <String>[];
-    final url = '/search-worlds';
+    const url = '/search-worlds';
     final response = await util.get(url, error: apiError);
     if (response.isNotEmpty) {
       final _arr = jsonDecode(response)['hotWords'] as List<dynamic>;
@@ -350,7 +370,7 @@ class DdTaokeSdk {
   ///缺少参数将会报错
   Future<List<JdProduct>> jdNinesList(int page, int pageSize, int sort,
       {ApiError? apiError}) async {
-    final url = '/jd-nines';
+    const url = '/jd-nines';
     var result = <JdProduct>[];
     await util
         .get(url, data: {'pageId': page, 'pageSize': pageSize, 'sort': sort},
@@ -367,7 +387,7 @@ class DdTaokeSdk {
   /// 获取京东产品数据
   /// param [sku] 京东产品id
   Future<JdProduct?> jdDetail(String sku, {ApiError? error}) async {
-    final url = '/jd-detail';
+    const url = '/jd-detail';
     JdProduct? result;
     final jsonString = await util.get(url, data: {'sku': sku}, error: error);
     Get.log(jsonString);
@@ -389,7 +409,7 @@ class DdTaokeSdk {
   Future<List<JdProduct>> jdPhb(int page, int pageSize,
       {ApiError? error}) async {
     var result = <JdProduct>[];
-    final url = '/jd-phb';
+    const url = '/jd-phb';
     await util.get(url, data: {'page': page, 'pageSize': pageSize},
         mapData: (data) {
       final list = data['list'];
@@ -405,7 +425,7 @@ class DdTaokeSdk {
   Future<List<JdProduct>> jdDpzk(int page, int pageSize,
       {ApiError? error}) async {
     var result = <JdProduct>[];
-    final url = '/jd-dpzk';
+    const url = '/jd-dpzk';
     await util.get(url, data: {'page': page, 'pageSize': pageSize},
         mapData: (data) {
       final list = data['list'];
@@ -454,4 +474,11 @@ class DdTaokeSdk {
     return [];
     }
 }
+}
+
+
+extension ListExt on List<dynamic>{
+  List<Product> covertToProducts(){
+    return List<Product>.from(map((e) => Product.fromJson(e))).toList();
+  }
 }
