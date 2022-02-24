@@ -27,4 +27,16 @@ class BlogService {
     }
     return null;
   }
+
+  /// 获取字典模型对象
+  /// params [key] : 字典的key
+  /// params [password] : 部分字典是加密的,需要传递一个密码给后台解密才能获取数据, 密码被加盐后存储
+  Future<dynamic> getTextModel(String key, {String? password}) async {
+    final data = <String, dynamic>{'name': key};
+    if (password != null) {
+      data['viewPassword'] = password;
+    }
+    final response = await util.get('/api/blog/text', data: data);
+    return response;
+  }
 }
