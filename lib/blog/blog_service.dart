@@ -39,4 +39,18 @@ class BlogService {
     final response = await util.get('/api/blog/text', data: data);
     return response;
   }
+
+  /// 发布一篇新博客
+  Future<void> pishNewBlog(String title, String content, List<String> tags, String categoryId, {String? alias}) async {
+    await util.post('/api/blog/push-new',data: {'title': title, 'content': content, 'tags': tags, 'categoryId': categoryId,'alias':alias??''});
+  }
+
+  /// 获取基本信息集合
+  /// 有标签
+  /// 有分类
+  /// 有日期分类统计等数据
+  Future<Map<String,dynamic>> getStatistics() async {
+    final jsonString = await util.get('/api/blog/statistics');
+    return jsonString.isNotEmpty ? jsonDecode(jsonString) : {};
+  }
 }

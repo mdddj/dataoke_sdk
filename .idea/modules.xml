@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/dataoke_sdk.iml" filepath="$PROJECT_DIR$/dataoke_sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/dataoke_sdk_android.iml" filepath="$PROJECT_DIR$/android/dataoke_sdk_android.iml" />
     </modules>
   </component>
 </project>
