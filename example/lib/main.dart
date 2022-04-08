@@ -33,7 +33,8 @@ import 'component/json_result_page.dart';
 
 void main() {
   // final proxy = '192.168.199.68:2333';
-  DdTaokeUtil.instance.init('https://itbug.shop', '443', proxy: '',
+  // 服务器 https://itbug.shop
+  DdTaokeUtil.instance.init('http://192.168.199.56', '80', proxy: '',
       onStart: (dio) {
     (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
         (client) {

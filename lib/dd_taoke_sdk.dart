@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:dataoke_sdk/errors.dart';
 import 'package:logger/logger.dart';
 
 import 'model/activity_link_result.dart';
@@ -398,7 +399,7 @@ class DdTaokeSdk {
         try {
           result = JdProduct.fromJson(item);
         } catch (e) {
-          print('解析京东产品数据失败');
+          throw AppError('解析京东数据失败');
         }
       }
     }

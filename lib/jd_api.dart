@@ -1,6 +1,7 @@
 import 'model/jd/jd_req_param.dart';
 import 'network/util.dart';
 
+//京东的接口
 class JdApi {
   JdApi._();
 
