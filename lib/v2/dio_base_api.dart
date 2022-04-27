@@ -14,7 +14,7 @@ extension ListExt on List<dynamic> {
 }
 
 extension ResultJsonExt on ResultJson? {
-  bool get requestIsSuccess => this!=null && this!.success == true && this!.errors.isEmpty;
+  bool get requestIsSuccess => this!=null && this!.success == true;
 }
 
 abstract class BaseModel<T> {
@@ -35,7 +35,7 @@ class ResultJson {
 
   factory ResultJson.fromJson(Map<String, dynamic> map) {
     return ResultJson(
-        success: map['success'],
+        success: map['state']==200,
         errorMessage: map['errorMessage'] ?? '',
         errors: map['errors'] ?? [],
         data: map['data']);
