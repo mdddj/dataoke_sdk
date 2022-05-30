@@ -220,7 +220,7 @@ class Product {
         couponEndTime: json["couponEndTime"],
         directCommission: json["directCommission"]?.toDouble(),
         twoHoursSales: json["twoHoursSales"],
-        createTime: json["createTime"],
+        createTime: '',
         dsrPercent: json["dsrPercent"]?.toDouble(),
         estimateAmount: json["estimateAmount"]?.toDouble(),
         specialText: json["specialText"] != null
