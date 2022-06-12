@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
                       .getProducts(param: ProductListParam(pageId: '1'));
                   toJsonView(result);
                 }),
-                MyButton('商品详情', onTap: () async {
+                MyButton('商品详情'.tr, onTap: () async {
                   final result = await DdTaokeSdk.instance.getProductDetail(
                       param: ProductDetailParam(id: '35685974'));
                   toJsonView(result);
