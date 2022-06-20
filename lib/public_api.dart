@@ -47,7 +47,7 @@ class PublicApi {
       {ValueChanged<String>? tokenHandle,
       ValueChanged<String>? loginFail}) async {
     final result = await util.post(
-      '/api/user/login',
+      '/api/user-public/login',
       data: {'loginNumber': username, 'password': password},
       error: (int code, String msg, data) {
         loginFail?.call(msg);
