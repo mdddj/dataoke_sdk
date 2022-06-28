@@ -62,7 +62,7 @@ class DdTaokeUtil {
     if (_showParams && data != null) {
       Logger().wtf(jsonEncode(data));
     }
-    var _dio = createInstance()!;
+    var _dio = createInstance();
     if (_proxy.isNotEmpty) addProxy(_dio, _proxy);
     if (isTaokeApi ?? true) {
       url = tkApi + url;
@@ -111,7 +111,7 @@ class DdTaokeUtil {
         errorHandle(error, e.response!.statusCode ?? -1,
             e.response!.statusMessage ?? '请求失败');
       }
-      errorHandle(error, 500, '${e.toString()}');
+      errorHandle(error, 500, e.toString());
     }
 
     return '';
@@ -124,7 +124,7 @@ class DdTaokeUtil {
       ApiError? error,
       bool? isTaokeApi,
       ValueChanged<dynamic>? otherDataHandle}) async {
-    var _dio = createInstance()!;
+    var _dio = createInstance();
     if (_proxy.isNotEmpty) addProxy(_dio, _proxy);
     if (!kIsWeb) {
       (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
@@ -170,7 +170,7 @@ class DdTaokeUtil {
         errorHandle(error, e.response!.statusCode ?? -1,
             e.response!.statusMessage ?? '请求失败');
       }
-      errorHandle(error, 500, '${e.toString()}');
+      errorHandle(error, 500, e.toString());
     }
 
     return '';
@@ -186,7 +186,7 @@ class DdTaokeUtil {
   }
 
   /// 创建dio实例
-  Dio? createInstance() {
+  Dio createInstance() {
     if (dio == null) {
       final url = '$_ip:$_port';
       BaseOptions options = BaseOptions(
@@ -195,7 +195,7 @@ class DdTaokeUtil {
       );
       dio = Dio(options);
     }
-    return dio;
+    return dio!;
   }
 }
 

@@ -154,6 +154,7 @@ class Product {
   String? circleText;
 
   factory Product.fromJson(Map<String, dynamic> json) {
+    final tChaoshi = json['tchaoshi'] is String ? int.parse(json['tchaoshi']) : json['tchaoshi'] as int;
     return Product(
         teamName: json["teamName"],
         tbcid:
@@ -172,7 +173,7 @@ class Product {
         couponStartTime: json["couponStartTime"],
         serviceScore: json["serviceScore"]?.toDouble(),
         mainPic: json["mainPic"],
-        tchaoshi: json["tchaoshi"],
+        tchaoshi: tChaoshi,
         id: json["id"] is String ? int.parse(json["id"]) : json["id"],
         brand: json["brand"],
         imgs: json["imgs"],
