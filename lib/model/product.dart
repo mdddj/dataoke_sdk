@@ -1,8 +1,7 @@
-// To parse this JSON data, do
-//
-//     final product = productFromJson(jsonString);
 
 import 'dart:convert';
+
+import 'base/favorite_model.dart';
 
 List<Product> getProductsWithResponse(String str) =>
     List<Product>.from(jsonDecode(str).map((x) => Product.fromJson(x)));
@@ -11,7 +10,7 @@ Product productFromJson(String str) => Product.fromJson(json.decode(str));
 
 String productToJson(Product data) => json.encode(data.toJson());
 
-class Product {
+class Product extends FavoriteModel{
   Product(
       {this.teamName,
       this.tbcid,
@@ -384,4 +383,39 @@ class Product {
         "hotPush": hotPush,
         "subdivisionName": subdivisionName,
       };
+
+  @override
+  String getAmount() {
+    return "$couponPrice";
+  }
+
+  @override
+  String getArrivalPrice() {
+    return "$actualPrice";
+  }
+
+  @override
+  String getEndTime() {
+    return "$couponEndTime";
+  }
+
+  @override
+  String getImageUrl() {
+    return "$mainPic";
+  }
+
+  @override
+  String getProductId() {
+    return "$goodsId";
+  }
+
+  @override
+  String getTitle() {
+    return "$title";
+  }
+
+  @override
+  String getType() {
+    return "淘宝";
+  }
 }
