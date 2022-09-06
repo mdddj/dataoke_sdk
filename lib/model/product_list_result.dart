@@ -4,10 +4,19 @@
 
 import 'dart:convert';
 
+import 'package:dd_js_util/api/exception.dart';
+
 import 'product.dart';
 
-ProductListResult productListFromJson(String str) => ProductListResult.fromJson(json.decode(str));
-
+ProductListResult productListFromJson(String str) {
+ try{
+   return ProductListResult.fromJson(json.decode(str));
+ }catch(e,s){
+   print(e);
+   print(s);
+   throw AppException.appError();
+ }
+}
 String productListToJson(ProductListResult data) => json.encode(data.toJson());
 
 class ProductListResult {

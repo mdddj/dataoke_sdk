@@ -63,8 +63,6 @@ List<dynamic> tryCoverList(String result, String paramsKey) {
       return _arr;
     }
   } catch (e,s) {
-    print('解析列表异常:$e');
-    print(s);
     return <dynamic>[];
   }
 

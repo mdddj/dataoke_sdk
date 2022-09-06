@@ -72,8 +72,6 @@ class PublicApi {
       try {
         return User.fromJson(jsonDecode(result));
       } catch (e, s) {
-        print(e);
-        print(s);
         return null;
       }
     }

@@ -114,7 +114,7 @@ class ListElement {
             ? (json["couponAmount"] as double).round()
             : json["couponAmount"],
         isMamaQuan: json["isMamaQuan"],
-        qiangNum: json["qiangNum"] == null ? null : json["qiangNum"],
+        qiangNum: json["qiangNum"],
         top: json["top"],
         useQuan: json["useQuan"],
         price: json["price"].toDouble(),
@@ -139,7 +139,7 @@ class ListElement {
         "yijuhua": yijuhua,
         "couponAmount": couponAmount,
         "isMamaQuan": isMamaQuan,
-        "qiangNum": qiangNum == null ? null : qiangNum,
+        "qiangNum": qiangNum,
         "top": top,
         "useQuan": useQuan,
         "price": price,
@@ -181,9 +181,7 @@ class EnumValues<T> {
   EnumValues(this.map);
 
   Map<T, String>? get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => MapEntry(v, k));
-    }
+    reverseMap ??= map.map((k, v) => MapEntry(v, k));
     return reverseMap;
   }
 }

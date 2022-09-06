@@ -26,25 +26,12 @@ import 'package:dataoke_sdk/public_api.dart';
 import 'component/buttom.dart';
 import 'component/input_model.dart';
 import 'test/hotday_page.dart';
-import 'package:dio/adapter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'component/json_result_page.dart';
 
 void main() {
-  // final proxy = '192.168.199.68:2333';
-  // 服务器 https://itbug.shop
-  DdTaokeUtil.instance.init('http://192.168.100.26', '80', proxy: '',
-      onStart: (dio) {
-    (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-        (client) {
-      client.badCertificateCallback = (cert, host, port) {
-        return true;
-      };
-    };
-  }, debug: false, printParams: true); // 我测试用的
-  // DdTaokeUtil.instance.init('http://itbug.shop', '80', proxy: ''); // 服务器的接口
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(),
@@ -270,21 +257,15 @@ class MyApp extends StatelessWidget {
                   PublicApi.req.register('diandian', '1234567',
                       'https://static.saintic.com/picbed/huang/2021/08/17/1629169985486.jpg',
                       otherDataHandle: (data) {
-                    print(data);
                   }, apiError: (code, msg, data) {
-                    print(code);
-                    print(msg);
-                    print(data);
                   }).then((value) {
                     if (value) {
-                      print('注册成功');
                     }
                   });
                 }),
                 MyButton('登录测试', onTap: () {
                   PublicApi.req.login('diandian', '1234567',
                       tokenHandle: (token) {
-                    print('登录获取的token是:$token');
                   }, loginFail: (msg) {
                     print('登录失败:$msg');
                   });

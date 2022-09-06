@@ -22,7 +22,6 @@ class GameRoomModel {
   /// 获取全部房间的转换
   static List<GameRoomModel> covertFromRoomsApi(String result){
     final map = jsonDecode(result);
-    print(map.runtimeType);
     final list = List<GameRoomModel>.from((map as List<dynamic>).map((e) => GameRoomModel.fromJson(jsonDecode(e)))).toList();
     return list;
   }

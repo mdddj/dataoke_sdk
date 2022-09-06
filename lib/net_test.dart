@@ -5,25 +5,19 @@
 import 'dart:io';
 
 Future<void> main(List<String> args) async {
-  print('Testing host resolves...');
   await _checkHosts();
 
-  print('Testing one connection per request...');
   await _checkUrls();
 
-  print('Testing connection reuse...');
   final iterations = args.isEmpty ? 10 : int.parse(args.first);
   final client = HttpClient();
   for (var i = 0; i < iterations; i++) {
-    print('- iteration #${i + 1}/$iterations...');
     await _checkUrls(client: client);
   }
   client.close();
-
-  print('Done.');
 }
 
-final timeLimit = Duration(seconds: 15);
+const timeLimit = Duration(seconds: 15);
 final urls = <String>[
   'https://pub.dev/api/packages/http',
   'https://pub.dartlang.org/api/packages/http',
@@ -51,10 +45,7 @@ Future<void> _checkHosts() async {
           }
         }
         final successCount = addresses.length - failed.length;
-        print(
-            '- $host $typeStr resolve and connect succeeded: $successCount / ${addresses.length}');
-      } catch (e) {
-        print('- $host $typeStr lookup failed: $e');
+      } catch (_) {
       }
     }
   }

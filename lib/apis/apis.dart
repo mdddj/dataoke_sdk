@@ -1,7 +1,7 @@
 
 
 
-import 'package:dataoke_sdk/v2/dio_base_api.dart';
+import 'package:dd_js_util/api/base.dart';
 
 ///美团领券
 class MeiTuanQuanApi extends BaseApi {

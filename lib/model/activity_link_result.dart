@@ -25,7 +25,7 @@ class ActivityLinkResult {
       pageStartTime: asT<String>(jsonRes['page_start_time']??'')!,
       pageName: asT<String>(jsonRes['page_name']??'')!,
       clickUrl: asT<String>(jsonRes['click_url'])!,
-      tpwd: asT<String>(jsonRes['tpwd'])!,
+      tpwd: asT<String>(jsonRes['Tpwd']??'')!,
       longTpwd: asT<String>(jsonRes['longTpwd'])!,
       pageEndTime: asT<String>(jsonRes['page_end_time']??'')!,
     );
