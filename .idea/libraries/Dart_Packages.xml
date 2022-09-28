@@ -110,7 +110,7 @@
         <entry key="dd_js_util">
           <value>
             <list>
-              <option value="$USER_HOME$/dd_js_util/lib" />
+              <option value="$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/dd_js_util-0.5.3/lib" />
             </list>
           </value>
         </entry>
@@ -153,6 +153,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.1/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="fbroadcast_nullsafety">
+          <value>
+            <list>
+              <option value="$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/fbroadcast_nullsafety-3.0.0/lib" />
             </list>
           </value>
         </entry>
@@ -776,7 +783,6 @@
       </option>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/dd_js_util/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.3.1/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.9.0/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib" />
@@ -792,12 +798,14 @@
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3+1/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4/lib" />
+      <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/dd_js_util-0.5.3/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/decimal-2.2.0/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/dio-4.0.6/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/extended_image-6.3.0/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/extended_image_library-3.4.0/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/extended_list_library-3.0.0/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.1/lib" />
+      <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/fbroadcast_nullsafety-3.0.0/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-2.0.1/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/ffloat_nullsafety-3.0.1/lib" />
       <root url="file://$USER_HOME$/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.4/lib" />
