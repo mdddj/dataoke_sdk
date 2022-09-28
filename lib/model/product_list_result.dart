@@ -11,9 +11,7 @@ import 'product.dart';
 ProductListResult productListFromJson(String str) {
  try{
    return ProductListResult.fromJson(json.decode(str));
- }catch(e,s){
-   print(e);
-   print(s);
+ }catch(_){
    throw AppException.appError();
  }
 }

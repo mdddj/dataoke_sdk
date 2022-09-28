@@ -62,7 +62,7 @@ List<dynamic> tryCoverList(String result, String paramsKey) {
       final _arr = map[paramsKey] as List<dynamic>;
       return _arr;
     }
-  } catch (e,s) {
+  } catch (_) {
     return <dynamic>[];
   }
 

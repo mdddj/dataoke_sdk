@@ -37,12 +37,12 @@ class HalfPriceInfo {
   });
 
   String? banner;
-  List<ListElement>? list;
+  List<HalfPriceListElement>? list;
 
   factory HalfPriceInfo.fromJson(Map<String, dynamic> json) => HalfPriceInfo(
         banner: json["banner"],
-        list: List<ListElement>.from(
-            json["list"].map((x) => ListElement.fromJson(x))),
+        list: List<HalfPriceListElement>.from(
+            json["list"].map((x) => HalfPriceListElement.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -51,8 +51,8 @@ class HalfPriceInfo {
       };
 }
 
-class ListElement {
-  ListElement({
+class HalfPriceListElement {
+  HalfPriceListElement({
     this.commissionRate,
     this.todaySellNum,
     this.restCount,
@@ -100,7 +100,7 @@ class ListElement {
   int? activityType;
   int? tmall;
 
-  factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
+  factory HalfPriceListElement.fromJson(Map<String, dynamic> json) => HalfPriceListElement(
         commissionRate: json["commissionRate"].toDouble(),
         todaySellNum: json["todaySellNum"],
         restCount: json["restCount"],

@@ -1,44 +1,24 @@
-import 'package:dataoke_sdk/apis/apis.dart';
-import 'package:dataoke_sdk/blog/blog_service.dart';
-import 'package:dataoke_sdk/constant/sort.dart';
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:dataoke_sdk/jd_api.dart';
-import 'package:dataoke_sdk/model/jd/jd_req_param.dart';
-import 'package:dataoke_sdk/network/util.dart';
-import 'package:dataoke_sdk/params/activity_link_param.dart';
-import 'package:dataoke_sdk/params/brand_param.dart';
-import 'package:dataoke_sdk/params/brand_product_param.dart';
-import 'package:dataoke_sdk/params/comment_param.dart';
-import 'package:dataoke_sdk/params/discount_two_param.dart';
-import 'package:dataoke_sdk/params/high_commission_param.dart';
-import 'package:dataoke_sdk/params/hotday_param.dart';
-import 'package:dataoke_sdk/params/nine_nine_param.dart';
-import 'package:dataoke_sdk/params/product_detail_param.dart';
-import 'package:dataoke_sdk/params/product_list_param.dart';
-import 'package:dataoke_sdk/params/shop_convert_param.dart';
-import 'package:dataoke_sdk/params/speider_param.dart';
-import 'package:dataoke_sdk/params/super_search_param.dart';
-import 'package:dataoke_sdk/params/taobao_oneprice_param.dart';
-import 'package:dataoke_sdk/params/top_param.dart';
-import 'package:dataoke_sdk/params/wechat_param.dart';
-import 'package:dataoke_sdk/public_api.dart';
 
-import 'component/buttom.dart';
-import 'component/input_model.dart';
-import 'test/hotday_page.dart';
+
+import 'package:dataoke_sdk/dd_dataoke_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'component/buttom.dart';
+import 'component/input_model.dart';
 import 'component/json_result_page.dart';
+import 'test/hotday_page.dart';
 
 void main() {
-  runApp(GetMaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,7 +84,7 @@ class MyApp extends StatelessWidget {
                   toJsonView(result);
                 }),
                 MyButton('高效转链', onTap: () async {
-                  await Get.dialog<String>(InputDialog(
+                  await Get.dialog<String>(const InputDialog(
                     title: '请输入淘宝商品id',
                   )).then((value) async {
                     if (value != null) {
@@ -168,11 +148,7 @@ class MyApp extends StatelessWidget {
                           pageId: '1', nineCid: '-1', pageSize: '20'));
                   toJsonView(result);
                 }),
-                MyButton('获取评论(暂无返回数据)', onTap: () async {
-                  final result = await DdTaokeSdk.instance
-                      .getProductComments(param: CommentParam(id: '32731926'));
-                  toJsonView(result);
-                }),
+
                 MyButton('店铺转链', onTap: () async {
                   final result = await DdTaokeSdk.instance.shopConvert(
                       param: ShopConvertParam(
@@ -222,7 +198,7 @@ class MyApp extends StatelessWidget {
                   toJsonView(result);
                 }),
                 MyButton('活动转链', onTap: () async {
-                  final activityId = await Get.dialog<String>(InputDialog(
+                  final activityId = await Get.dialog<String>(const InputDialog(
                     title: '请输入活动id',
                   ));
                   if (activityId != null) {
@@ -267,7 +243,6 @@ class MyApp extends StatelessWidget {
                   PublicApi.req.login('diandian', '1234567',
                       tokenHandle: (token) {
                   }, loginFail: (msg) {
-                    print('登录失败:$msg');
                   });
                 }),
                 MyButton('获取系统预设头像', onTap: () async {
@@ -278,8 +253,8 @@ class MyApp extends StatelessWidget {
                   PublicApi.req.createRoom(46, '梁典典进');
                 }),
                 MyButton('获取全部的游戏房间', onTap: () async {
-                  final result = await PublicApi.req.getAllRoom();
-                  print('获取到房间数量:${result.length}');
+                await PublicApi.req.getAllRoom();
+
                 }),
                 MyButton('获取当前在线总人数', onTap: () {
                   PublicApi.req.getInlineUserCount();
@@ -292,9 +267,7 @@ class MyApp extends StatelessWidget {
                 MyButton('京东商品查询', onTap: () async {
                   final result = await JdApi.instance.searchProducts(
                       error: (c, m, d) {
-                        print(c);
-                        print(m);
-                        print(d);
+
                       },
                       params: {'keyword': '辣条'});
                   toJsonView(result);

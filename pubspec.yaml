@@ -13,7 +13,7 @@ dependencies:
   dio: ^4.0.6
   get: ^4.6.5
   logger: ^1.1.0
-  dd_js_util: ^0.4.5
+  dd_js_util: any
   flutter_web_plugins:
     sdk: flutter
 

@@ -4,7 +4,14 @@
 
 import 'dart:convert';
 
-List<Carousel> carouselFromJson(String str) => List<Carousel>.from(json.decode(str).map((x) => Carousel.fromJson(x)));
+List<Carousel> carouselFromJson(String str) {
+ try{
+   return List<Carousel>.from(json.decode(str).map((x) => Carousel.fromJson(x)));
+ }catch(_){
+
+   return [];
+ }
+}
 
 String carouselToJson(List<Carousel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 

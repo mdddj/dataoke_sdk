@@ -18,13 +18,13 @@ class SpeiderResult {
 
   bool? goScroll;
   int? totalNum;
-  List<ListElement>? list;
+  List<SpeiderListElement>? list;
   String? pageId;
 
   factory SpeiderResult.fromJson(Map<String, dynamic> json) => SpeiderResult(
     goScroll: json["goScroll"],
     totalNum: json["totalNum"],
-    list: List<ListElement>.from(json["list"].map((x) => ListElement.fromJson(x))),
+    list: List<SpeiderListElement>.from(json["list"].map((x) => SpeiderListElement.fromJson(x))),
     pageId: json["pageId"],
   );
 
@@ -36,8 +36,8 @@ class SpeiderResult {
   };
 }
 
-class ListElement {
-  ListElement({
+class SpeiderListElement {
+  SpeiderListElement({
     this.itemId,
     this.img,
     this.remark,
@@ -53,7 +53,7 @@ class ListElement {
   String? title;
   String? url;
 
-  factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
+  factory SpeiderListElement.fromJson(Map<String, dynamic> json) => SpeiderListElement(
     itemId: json["itemId"],
     img: json["img"],
     remark: json["remark"],

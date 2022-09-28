@@ -44,14 +44,15 @@ class DdTaokeUtil{
     }
    final api =  TKBaseApi(url,httpMethod: HttpMethod.get);
    try{
-     final r = await api.request(showDefaultLoading: false,data: data,dioStart: (dio){
+     final r = await api.request(showDefaultLoading: false,data: data,dioStart: (dio,url){
        onStart?.call(dio);
      });
+
      if(r is String) {
        throw AppException.appError();
      }
      final json = WrapJson(r as Map<String,dynamic>);
-     if(json.getInt('state',defaultValue: 0) == 200){
+     if(json.getInt('state') == 200){
        final data =  json.getValue('data');
        if(data is String) {
          mapData?.call(jsonDecode(data));
@@ -63,6 +64,7 @@ class DdTaokeUtil{
 
      }
    }on AppException catch(e){
+     debugPrint("出现错误:$e");
      errorHandle(error, e.code , e.message);
    }
    return '';

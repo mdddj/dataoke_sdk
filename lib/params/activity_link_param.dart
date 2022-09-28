@@ -1,11 +1,6 @@
 import 'dart:convert';
 
-T? asT<T>(dynamic value) {
-  if (value is T) {
-    return value;
-  }
-  return null;
-}
+import 'package:dataoke_sdk/dd_dataoke_sdk.dart';
 
 class ActivityLinkParam {
   ActivityLinkParam({

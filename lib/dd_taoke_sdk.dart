@@ -1,55 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:dataoke_sdk/errors.dart';
+import 'package:dataoke_sdk/dd_dataoke_sdk.dart';
+import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 
-import 'model/activity_link_result.dart';
-import 'model/brand_list_model.dart';
-import 'model/category.dart';
-import 'model/pdd/pdd_category.dart';
-import 'model/product.dart';
-import 'network/util.dart';
-import 'params/activity_link_param.dart';
-import 'params/brand_param.dart';
-import 'params/brand_product_param.dart';
-import 'params/comment_param.dart';
-import 'params/coupons_detail_link_param.dart';
-import 'params/discount_two_param.dart';
-import 'params/high_commission_param.dart';
-import 'params/hotday_param.dart';
-import 'params/nine_nine_param.dart';
-import 'params/product_detail_param.dart';
-import 'params/product_list_param.dart';
-import 'params/shop_convert_param.dart';
-import 'params/speider_param.dart';
-import 'params/super_search_param.dart';
-import 'params/taobao_oneprice_param.dart';
-import 'params/top_param.dart';
-import 'params/wechat_param.dart';
-import 'package:dio/dio.dart';
-import 'package:get/get.dart';
 
-import 'model/brand_detail_result.dart';
-import 'model/carousel_model.dart';
-import 'model/coupon_link_result.dart';
-import 'model/ddq_result.dart';
-import 'model/detail_base_data.dart';
-import 'model/discount_two_result.dart';
-import 'model/halfday_result.dart';
-import 'model/high_commission_result.dart';
-import 'model/history_price_result.dart';
-import 'model/hot_search_worlds_result.dart';
-import 'model/hotday_result.dart';
-import 'model/jd/jd_product.dart';
-import 'model/live_data_result.dart';
-import 'model/nine_nine_result.dart';
-import 'model/product_list_result.dart';
-import 'model/product_material_result.dart';
-import 'model/speider_resullt.dart';
-import 'model/super_search_result.dart';
-import 'model/taobao_oneprice_result.dart';
-import 'model/wechat_result.dart';
 
 class DdTaokeSdk {
   DdTaokeSdk._();
@@ -253,21 +209,13 @@ class DdTaokeSdk {
     return response.isNotEmpty ? nineNineResultFromJson(response) : null;
   }
 
-  /// 获取商品评论
-  @Deprecated('商品评论因为采集受限所以暂时没有数据')
-  Future<String?> getProductComments(
-      {required CommentParam param, ApiError? error}) async {
-    const url = '/comment';
-    final response = await util.get(url, error: error, data: param.toJson());
-    return response;
-  }
+
 
   /// 店铺转链
   Future<String> shopConvert(
       {required ShopConvertParam param, ApiError? error}) async {
     const url = '/shop-convert';
     final response = await util.get(url, error: error, data: param.toJson());
-    Get.log(response);
     return response;
   }
 
@@ -391,7 +339,6 @@ class DdTaokeSdk {
     const url = '/jd-detail';
     JdProduct? result;
     final jsonString = await util.get(url, data: {'sku': sku}, error: error);
-    Get.log(jsonString);
     if (jsonString.isNotEmpty) {
       final data = jsonDecode(jsonString);
       if (data is List<dynamic> && data.isNotEmpty) {
@@ -449,7 +396,7 @@ class DdTaokeSdk {
     final response = await util.get('/pdd-category',
         data: {'parentId': parentId}, error: error);
     try {
-      return response.isEmpty ? [] : JdOrPddCategoryFromJson(response);
+      return response.isEmpty ? [] : jdOrPddCategoryFromJson(response);
     } catch (_) {
       error?.call(8000, '程序内部错误', null);
       return [];
@@ -469,7 +416,7 @@ class DdTaokeSdk {
     final response = await util.get('/jd-category',
         data:param, error: error);
     try {
-      return response.isEmpty ? [] : JdOrPddCategoryFromJson(response);
+      return response.isEmpty ? [] : jdOrPddCategoryFromJson(response);
     } catch (_) {
     error?.call(8000, '程序内部错误', null);
     return [];

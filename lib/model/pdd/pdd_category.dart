@@ -4,9 +4,9 @@
 
 import 'dart:convert';
 
-List<JdOrPddCategory> JdOrPddCategoryFromJson(String str) => List<JdOrPddCategory>.from(json.decode(str).map((x) => JdOrPddCategory.fromJson(x)));
+List<JdOrPddCategory> jdOrPddCategoryFromJson(String str) => List<JdOrPddCategory>.from(json.decode(str).map((x) => JdOrPddCategory.fromJson(x)));
 
-String JdOrPddCategoryToJson(List<JdOrPddCategory> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String jdOrPddCategoryToJson(List<JdOrPddCategory> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class JdOrPddCategory {
   JdOrPddCategory({

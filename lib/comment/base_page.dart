@@ -13,7 +13,7 @@ abstract class BasePage<T extends StatefulWidget> extends State<T> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       afterLayout(context);
       loadCategory();
       getProductRequest(page, pageSize).then(addNewProducts);

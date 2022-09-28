@@ -22,7 +22,7 @@ class _InputDialogState extends State<InputDialog> {
           width: 200,
           height: 200,
           child: Container(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(8)),
             child: Column(
