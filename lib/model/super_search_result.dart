@@ -21,7 +21,7 @@ class SuperSearchResult {
   int? totalNum;
   List<BrandList>? brandList;
   List<Product>? list;
-  String? pageId;
+  int? pageId;
 
   factory SuperSearchResult.fromJson(Map<String, dynamic> json) => SuperSearchResult(
     totalNum: json["totalNum"],
