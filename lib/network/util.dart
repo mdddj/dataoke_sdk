@@ -8,6 +8,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 
+typedef IfPrint = bool Function(String path);
+
 class TKBaseApi extends BaseApi {
   final String apiUrl;
   TKBaseApi(this.apiUrl,{HttpMethod httpMethod = HttpMethod.get}):super(apiUrl,httpMethod:httpMethod);
@@ -38,7 +40,7 @@ class DdTaokeUtil{
       bool? isTaokeApi,
       ResultDataMapHandle? mapData,
       CancelToken? cancelToken,
-      ValueChanged<dynamic>? otherDataHandle}) async {
+      ValueChanged<dynamic>? otherDataHandle,IfPrint? ifPrint}) async {
     if (isTaokeApi ?? true) {
       url = tkApi + url;
     }
@@ -52,6 +54,9 @@ class DdTaokeUtil{
        throw AppException.appError();
      }
      final json = WrapJson(r as Map<String,dynamic>);
+     if(ifPrint?.call(url) == true){
+       json.print();
+     }
      if(json.getInt('state') == 200){
        final data =  json.getValue('data');
        if(data is String) {

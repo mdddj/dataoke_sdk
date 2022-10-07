@@ -40,10 +40,14 @@ class DdTaokeSdk {
   Future<ProductListResult?> getProducts(
       {required ProductListParam param,
       ApiError? error,
-      CancelToken? cancelToken}) async {
-    final response = await util.get('/goods',
-        data: param.toJson(), error: error, cancelToken: cancelToken);
-    return response.isNotEmpty ? productListFromJson(response) : null;
+      CancelToken? cancelToken,IfPrint? ifPrint}) async {
+    try{
+      final response = await util.get('/goods',
+          data: param.toJson(), error: error, cancelToken: cancelToken,ifPrint: ifPrint);
+      return response.isNotEmpty ? productListFromJson(response) : null;
+    }catch(e){
+      rethrow;
+    }
   }
 
   /// 获取商品详情

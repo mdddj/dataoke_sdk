@@ -58,22 +58,10 @@ export './params/taobao_oneprice_param.dart';
 export './params/top_param.dart';
 export './params/wechat_param.dart';
 export './dataoke_sdk.dart';
-export './dataoke_sdk_web.dart';
 export './dd_taoke_sdk.dart';
 export './errors.dart';
 export './jd_api.dart';
 export './public_api.dart';
 
-
-import 'dart:async';
-
-import 'package:flutter/services.dart';
-
 class DdDataokeSdk {
-  static const MethodChannel _channel = MethodChannel('dd_dataoke_sdk');
-
-  static Future<String?> get platformVersion async {
-    final String? version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
 }

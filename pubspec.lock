@@ -109,10 +109,10 @@ packages:
   dd_js_util:
     dependency: "direct main"
     description:
-      name: dd_js_util
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.6"
+      path: "../../dd_js_util"
+      relative: true
+    source: path
+    version: "1.0.0"
   decimal:
     dependency: transitive
     description:
