@@ -17,8 +17,8 @@ class TKBaseApi extends BaseApi {
 
 class DdTaokeUtil{
   DdTaokeUtil._();
-  factory DdTaokeUtil()=>DdTaokeUtil._();
-  static DdTaokeUtil get instance => DdTaokeUtil();
+  factory DdTaokeUtil()=> instance;
+  static DdTaokeUtil get instance => DdTaokeUtil._();
 
 
   final tkApi = '/tkapi/api/v1/dtk/apis';

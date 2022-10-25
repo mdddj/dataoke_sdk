@@ -62,6 +62,7 @@ export './dd_taoke_sdk.dart';
 export './errors.dart';
 export './jd_api.dart';
 export './public_api.dart';
+export './constant/hive_keys.dart';
 
 class DdDataokeSdk {
 }

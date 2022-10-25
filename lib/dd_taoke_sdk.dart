@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:dataoke_sdk/dd_dataoke_sdk.dart';
+import 'package:dd_js_util/api/exception.dart';
+import 'package:dd_js_util/dd_js_util.dart';
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 import 'package:logger/logger.dart';
 
 
@@ -16,10 +19,45 @@ class DdTaokeSdk {
 
   final util = DdTaokeUtil();
 
+  ///hive 适配器初始化
+  Future<void> objectAdapterInit() async  {
+    Hive.registerAdapter(SubcategoryAdapter());
+    Hive.registerAdapter(CategoryAdapter());
+    Hive.registerAdapter(CategoryWrapperAdapter());
+    final box = await Hive.openBox<CategoryWrapper>(kDDCategoryHiveBoxName);
+  }
+
+
+  ///清空缓存数据
+  Future<void> objectsClean() async  {
+    Hive.box(kDDCategoryHiveBoxName).clear();
+  }
+
+
   /// 获取超级分类
-  Future<List<Category>> getCategorys({ApiError? error}) async {
+  Future<List<Category>> getCategorys({ApiError? error,bool useCacheData = true}) async {
+    final box = Hive.box<CategoryWrapper>(kDDCategoryHiveBoxName);
+    if(useCacheData){
+      try{
+        final cacheData = box.get('dtk',defaultValue: CategoryWrapper([]))!;
+        if(cacheData.categorys.isNotEmpty){
+          kLog('使用了缓存数据:${cacheData.categorys.length}');
+          return cacheData.categorys;
+        }
+      }catch(e,s){
+        print(e);
+        print(s);
+      }
+    }
     final response = await util.get('/categorys', error: error);
-    return response.isNotEmpty ? categoryFromJson(response) : [];
+    try{
+      final categorys =  categoryFromJson(response);
+
+      box.put('dtk', CategoryWrapper(categorys));
+      return response.isNotEmpty ? categorys : [];
+    }catch(e){
+      throw AppException(code: 10001, message: '获取数据失败:$e');
+    }
   }
 
   /// 获取轮播图
