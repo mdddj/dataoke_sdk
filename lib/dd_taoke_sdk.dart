@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:dataoke_sdk/dd_dataoke_sdk.dart';
-import 'package:dd_js_util/api/exception.dart';
 import 'package:dd_js_util/dd_js_util.dart';
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
@@ -24,7 +23,7 @@ class DdTaokeSdk {
     Hive.registerAdapter(SubcategoryAdapter());
     Hive.registerAdapter(CategoryAdapter());
     Hive.registerAdapter(CategoryWrapperAdapter());
-    final box = await Hive.openBox<CategoryWrapper>(kDDCategoryHiveBoxName);
+    await Hive.openBox<CategoryWrapper>(kDDCategoryHiveBoxName);
   }
 
 
@@ -44,9 +43,8 @@ class DdTaokeSdk {
           kLog('使用了缓存数据:${cacheData.categorys.length}');
           return cacheData.categorys;
         }
-      }catch(e,s){
-        print(e);
-        print(s);
+      }catch(e){
+        throw AppException(code: 20002,message: "数据装换错误");
       }
     }
     final response = await util.get('/categorys', error: error);
@@ -348,8 +346,8 @@ class DdTaokeSdk {
     const url = '/search-worlds';
     final response = await util.get(url, error: apiError);
     if (response.isNotEmpty) {
-      final _arr = jsonDecode(response)['hotWords'] as List<dynamic>;
-      return List<String>.from(_arr.map((e) => e.toString())).toList();
+      final arr = jsonDecode(response)['hotWords'] as List<dynamic>;
+      return List<String>.from(arr.map((e) => e.toString())).toList();
     }
     return result;
   }

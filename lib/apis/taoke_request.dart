@@ -2,7 +2,8 @@
 
 import 'dart:convert';
 
-import 'package:dd_js_util/api/base.dart';
+import 'package:dd_js_util/dd_js_util.dart';
+
 
 //淘客请求统一封装
 class TaokeRequest extends BaseApi{

@@ -53,11 +53,11 @@ abstract class BasePage<T extends StatefulWidget> extends State<T> {
 
   // 下一页
   Future<void> loadMore() async {
-    final _nextPage = page + 1;
+    final nextPage = page + 1;
     addNewProducts(await getProductRequest(page, pageSize));
     if (mounted) {
       setState(() {
-        page = _nextPage;
+        page = nextPage;
       });
     }
   }

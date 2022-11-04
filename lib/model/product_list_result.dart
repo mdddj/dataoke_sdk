@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 
-import 'package:dd_js_util/api/exception.dart';
+
+import 'package:dd_js_util/dd_js_util.dart';
 
 import 'product.dart';
 

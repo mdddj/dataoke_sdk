@@ -406,7 +406,7 @@ class Product extends FavoriteModel{
 
   @override
   String getProductId() {
-    return "$goodsId";
+    return "$id";
   }
 
   @override
