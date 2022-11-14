@@ -1,7 +1,4 @@
-import 'dart:convert';
-
-import 'package:dataoke_sdk/blog/base_api.dart';
-import 'package:dataoke_sdk/blog/blog_model.dart';
+part of dataoke_sdk;
 
 /// 博客相关接口。
 class BlogService {

@@ -2,8 +2,7 @@
 //
 //     final hotSearchWorlds = hotSearchWorldsFromJson(jsonString);
 
-import 'dart:convert';
-
+part of dataoke_sdk;
 List<HotSearchWorlds> hotSearchWorldsFromJson(String str) => List<HotSearchWorlds>.from(json.decode(str).map((x) => HotSearchWorlds.fromJson(x)));
 
 String hotSearchWorldsToJson(List<HotSearchWorlds> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));

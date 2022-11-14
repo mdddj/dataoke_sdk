@@ -2,9 +2,7 @@
 //
 //     final liveDataResult = liveDataResultFromJson(jsonString);
 
-import 'dart:convert';
-
-import 'product.dart';
+part of dataoke_sdk;
 
 LiveDataResult liveDataResultFromJson(String str) => LiveDataResult.fromJson(json.decode(str));
 

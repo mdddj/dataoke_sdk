@@ -2,7 +2,7 @@
 //
 //     final taobaoOnePriceResult = taobaoOnePriceResultFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 List<TaobaoOnePriceResult> taobaoOnePriceResultFromJson(String str) => List<TaobaoOnePriceResult>.from(json.decode(str).map((x) => TaobaoOnePriceResult.fromJson(x)));
 

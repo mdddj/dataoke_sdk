@@ -2,7 +2,7 @@
 //
 //     final historyPriceResult = historyPriceResultFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 HistoryPriceResult historyPriceResultFromJson(String str) =>
     HistoryPriceResult.fromJson(json.decode(str));

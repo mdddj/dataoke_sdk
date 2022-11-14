@@ -1,8 +1,4 @@
-import 'dart:convert';
-
-import 'package:get/get.dart';
-
-import 'ff_convert_convert_util.dart';
+part of dataoke_sdk;
 
 
 class ActivityLinkResult {
@@ -17,8 +13,6 @@ class ActivityLinkResult {
   });
 
   factory ActivityLinkResult.fromJson(Map<String, dynamic> jsonRes) {
-    
-    Get.log(jsonEncode(jsonRes));
     
     return  ActivityLinkResult(
       terminalType: asT<String>(jsonRes['terminal_type']??'')!,

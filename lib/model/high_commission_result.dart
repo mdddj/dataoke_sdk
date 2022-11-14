@@ -2,9 +2,7 @@
 //
 //     final HighCommissionResult = HighCommissionResultFromJson(jsonString);
 
-import 'dart:convert';
-
-import 'product.dart';
+part of dataoke_sdk;
 
 HighCommissionResult highCommissionResultFromJson(String str) =>
     HighCommissionResult.fromJson(json.decode(str));

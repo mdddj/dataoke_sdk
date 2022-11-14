@@ -2,7 +2,7 @@
 //
 //     final JdOrPddCategory = JdOrPddCategoryFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 List<JdOrPddCategory> jdOrPddCategoryFromJson(String str) => List<JdOrPddCategory>.from(json.decode(str).map((x) => JdOrPddCategory.fromJson(x)));
 

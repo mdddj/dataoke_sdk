@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import 'package:dd_js_util/dd_js_util.dart';
+part of dataoke_sdk;
 
 
 /// 博客列表返回结果模型

@@ -1,6 +1,4 @@
-import 'package:dataoke_sdk/network/util.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+part of dataoke_sdk;
 
 class BaseBlogApiUtil {
   BaseBlogApiUtil._();

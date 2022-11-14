@@ -1,5 +1,4 @@
-import 'model/jd/jd_req_param.dart';
-import 'network/util.dart';
+part of dataoke_sdk;
 
 //京东的接口
 class JdApi {

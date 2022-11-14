@@ -2,7 +2,7 @@
 //
 //     final speiderParam = speiderParamFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 SpeiderParam speiderParamFromJson(String str) =>
     SpeiderParam.fromJson(json.decode(str));

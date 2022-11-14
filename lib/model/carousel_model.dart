@@ -2,7 +2,7 @@
 //
 //     final carousel = carouselFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 List<Carousel> carouselFromJson(String str) {
  try{

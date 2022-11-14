@@ -2,9 +2,7 @@
 //
 //     final ddTaokeResult = ddTaokeResultFromJson(jsonString);
 
-import 'dart:convert';
-
-import 'ff_convert_convert_util.dart';
+part of dataoke_sdk;
 
 DdTaokeResult ddTaokeResultFromJson(String str) => DdTaokeResult.fromJson(json.decode(str));
 

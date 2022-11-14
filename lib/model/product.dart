@@ -1,7 +1,5 @@
 
-import 'dart:convert';
-
-import 'base/favorite_model.dart';
+part of dataoke_sdk;
 
 List<Product> getProductsWithResponse(String str) =>
     List<Product>.from(jsonDecode(str).map((x) => Product.fromJson(x)));

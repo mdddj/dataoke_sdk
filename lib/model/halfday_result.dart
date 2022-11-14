@@ -2,7 +2,7 @@
 //
 //     final halfdayResult = halfdayResultFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 HalfdayResult halfdayResultFromJson(String str) =>
     HalfdayResult.fromJson(json.decode(str));

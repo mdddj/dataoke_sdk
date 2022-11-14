@@ -1,3 +1,4 @@
+part of dataoke_sdk;
 ///收藏产品的属性
 abstract class FavoriteModel {
   String getAmount(); //优惠券金额

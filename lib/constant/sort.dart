@@ -1,4 +1,4 @@
-
+part of dataoke_sdk;
 /// 折上折排序
 class DdSort {
   /// 综合排序

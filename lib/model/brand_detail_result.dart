@@ -1,10 +1,7 @@
 // To parse this JSON data, do
 //
 //     final brandDetail = brandDetailFromJson(jsonString);
-
-import 'dart:convert';
-
-import 'product.dart';
+part of dataoke_sdk;
 
 BrandDetail brandDetailFromJson(String str) => BrandDetail.fromJson(json.decode(str));
 

@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import 'package:dataoke_sdk/dd_dataoke_sdk.dart';
+part of dataoke_sdk;
 
 class ActivityLinkParam {
   ActivityLinkParam({

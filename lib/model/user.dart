@@ -1,10 +1,6 @@
 
 
-// Dart imports:
-import 'dart:convert';
-
-// Project imports:
-import 'ff_convert_convert_util.dart';
+part of dataoke_sdk;
 
 class User {
   User({

@@ -2,7 +2,7 @@
 //
 //     final highCommissionParam = highCommissionParamFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 
 HighCommissionParam highCommissionParamFromJson(String str) =>

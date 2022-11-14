@@ -2,9 +2,7 @@
 //
 //     final ddqResult = ddqResultFromJson(jsonString);
 
-import 'dart:convert';
-
-import 'product.dart';
+part of dataoke_sdk;
 
 DdqResult ddqResultFromJson(String str) => DdqResult.fromJson(json.decode(str));
 

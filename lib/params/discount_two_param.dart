@@ -2,7 +2,7 @@
 //
 //     final discountTwoParam = discountTwoParamFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 DiscountTwoParam discountTwoParamFromJson(String str) =>
     DiscountTwoParam.fromJson(json.decode(str));

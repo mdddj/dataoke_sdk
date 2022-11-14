@@ -2,9 +2,7 @@
 //
 //     final brandListResult = brandListResultFromJson(jsonString);
 
-import 'dart:convert';
-
-import 'product.dart';
+part of dataoke_sdk;
 
 BrandListResult brandListResultFromJson(String str) =>
     BrandListResult.fromJson(json.decode(str));

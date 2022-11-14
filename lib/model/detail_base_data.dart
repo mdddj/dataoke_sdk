@@ -1,7 +1,5 @@
-import 'dart:convert';
 
-import 'coupon_link_result.dart';
-import 'product.dart';
+part of dataoke_sdk;
 
 class DetailBaseDataResult {
   Product? info; // 商品的基本信息

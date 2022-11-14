@@ -1,7 +1,5 @@
-import 'dart:convert' show json;
 
-import 'ff_convert_convert_util.dart';
-import 'product.dart';
+part of dataoke_sdk;
 
 
 class WechatResult {

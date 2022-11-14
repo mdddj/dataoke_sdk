@@ -1,6 +1,4 @@
-import 'dart:convert' show json;
-
-import 'ff_convert_convert_util.dart';
+part of dataoke_sdk;
 
 /// 高效转链返回数据模型
 class CouponLinkResult {

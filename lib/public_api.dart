@@ -1,11 +1,4 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-
-import 'model/room_model.dart';
-import 'model/system_pic.dart';
-import 'model/user.dart';
-import 'network/util.dart';
+part of dataoke_sdk;
 
 const userApiUrl = '/api/public/user';
 

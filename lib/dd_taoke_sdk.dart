@@ -1,11 +1,5 @@
-import 'dart:async';
-import 'dart:convert';
 
-import 'package:dataoke_sdk/dd_dataoke_sdk.dart';
-import 'package:dd_js_util/dd_js_util.dart';
-import 'package:dio/dio.dart';
-import 'package:hive/hive.dart';
-import 'package:logger/logger.dart';
+part of dataoke_sdk;
 
 
 
@@ -154,7 +148,7 @@ class DdTaokeSdk {
     try{
       final map = jsonDecode(response);
       final list = map['list'] as List<dynamic>;
-      return list.covertToProducts();
+      return list.covertFun<Product>(list, (object) => Product.fromJson(object));
     }catch(_){
       return [];
     }
@@ -465,8 +459,4 @@ class DdTaokeSdk {
 }
 
 
-extension ListExt on List<dynamic>{
-  List<Product> covertToProducts(){
-    return List<Product>.from(map((e) => Product.fromJson(e))).toList();
-  }
-}
+

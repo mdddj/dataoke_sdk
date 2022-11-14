@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import 'user.dart';
+part of dataoke_sdk;
 
 class GameRoomModel {
   String roomName;

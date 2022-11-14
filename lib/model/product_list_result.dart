@@ -2,12 +2,7 @@
 //
 //     final productList = productListFromJson(jsonString);
 
-import 'dart:convert';
-
-
-import 'package:dd_js_util/dd_js_util.dart';
-
-import 'product.dart';
+part of dataoke_sdk;
 
 ProductListResult productListFromJson(String str) {
  try{

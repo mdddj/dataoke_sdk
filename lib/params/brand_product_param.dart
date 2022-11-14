@@ -2,7 +2,7 @@
 //
 //     final brandProductParam = brandProductParamFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 BrandProductParam brandProductParamFromJson(String str) => BrandProductParam.fromJson(json.decode(str));
 

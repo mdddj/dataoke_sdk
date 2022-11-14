@@ -2,9 +2,7 @@
 //
 //     final superSearchResult = superSearchResultFromJson(jsonString);
 
-import 'dart:convert';
-
-import 'product.dart';
+part of dataoke_sdk;
 
 SuperSearchResult superSearchResultFromJson(String str) => SuperSearchResult.fromJson(json.decode(str));
 

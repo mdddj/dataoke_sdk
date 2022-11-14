@@ -2,7 +2,7 @@
 //
 //     final couponsDetailParam = couponsDetailParamFromJson(jsonString);
 
-import 'dart:convert';
+part of dataoke_sdk;
 
 CouponsDetailParam couponsDetailParamFromJson(String str) =>
     CouponsDetailParam.fromJson(json.decode(str));
