@@ -61,11 +61,10 @@ class DdTaokeUtil{
        }
 
      }
-   }on AppException catch(e){
-     debugPrint("出现错误:$e");
-     errorHandle(error, e.code , e.message);
+   } on AppException catch(_){
+     rethrow;
    }
-   return '';
+   throw AppException(code: -10001, message: '获取数据失败');
   }
 
   /// POST 请求
@@ -86,22 +85,13 @@ class DdTaokeUtil{
         final dataString = json.getString('data');
         return dataString;
       }else{
-        errorHandle(error, json.getInt('state'), json.getString('message'));
+        throw AppException(code: json.getInt('state'), message:  json.getString('message'));
       }
-    }on AppException catch(e){
-      errorHandle(error, e.code , e.message);
+    }on AppException catch(_){
+      rethrow;
     }
-    return '';
   }
 
-  /// 请求没有正常执行
-  void errorHandle(ApiError? error, int code, String message, {dynamic data}) {
-    if (error != null) {
-      error(code, message, data);
-    } else {
-      kLogErr('请求失败:code=$code.message=$message');
-    }
-  }
 
 }
 
