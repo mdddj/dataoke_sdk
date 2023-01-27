@@ -7,7 +7,8 @@ part of dataoke_sdk;
 ProductListResult productListFromJson(String str) {
  try{
    return ProductListResult.fromJson(json.decode(str));
- }catch(_){
+ }catch(e,s){
+   debugPrintStack(stackTrace: s,label: 'model/product_list_result.dart:$e');
    throw AppException.appError();
  }
 }

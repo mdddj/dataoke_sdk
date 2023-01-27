@@ -34,7 +34,6 @@ class DdTaokeSdk {
       try{
         final cacheData = box.get('dtk',defaultValue: CategoryWrapper([]))!;
         if(cacheData.categorys.isNotEmpty){
-          kLog('使用了缓存数据:${cacheData.categorys.length}');
           return cacheData.categorys;
         }
       }catch(e){
@@ -85,7 +84,7 @@ class DdTaokeSdk {
       {required ProductDetailParam param, ApiError? error}) async {
     final response =
         await util.get('/detail', data: param.toJson(), error: error);
-    return response.isNotEmpty ? productFromJson(response) : null;
+    return response.isNotEmpty ? Product.fromJson(jsonDecode(response)) : null;
   }
 
   /// 获取品牌详情
@@ -228,11 +227,11 @@ class DdTaokeSdk {
   }
 
   /// 获取榜单商品
-  Future<List<Product>> getTopProducts(
+  Future<IList<Product>> getTopProducts(
       {required TopParam param, ApiError? error}) async {
     const url = '/top';
     final response = await util.get(url, error: error, data: param.toJson());
-    return response.isNotEmpty ? getProductsWithResponse(response) : [];
+    return response.isNotEmpty ? getProductsWithResponse(response) : const IListConst( []);
   }
 
   /// 九块九包邮
@@ -255,12 +254,12 @@ class DdTaokeSdk {
 
   /// 细分类目商品
   /// /subdivision-goods
-  Future<List<Product>> getSubdivisionProducts(
+  Future<IList<Product>> getSubdivisionProducts(
       {required String subdivisionId, ApiError? error}) async {
     const url = '/subdivision-goods';
     final response = await util
         .get(url, error: error, data: {'subdivisionId': subdivisionId});
-    return response.isNotEmpty ? getProductsWithResponse(response) : [];
+    return response.isNotEmpty ? getProductsWithResponse(response) : const IListConst([]);
   }
 
   /// 折上折 商品

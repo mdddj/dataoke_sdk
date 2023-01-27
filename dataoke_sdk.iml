@@ -12,6 +12,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/dataoke_sdk/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/dataoke_sdk/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/dataoke_sdk/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/dd_models/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/dd_models/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dd_models/.dart_tool" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

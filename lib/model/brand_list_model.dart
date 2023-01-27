@@ -68,7 +68,7 @@ class ListElement {
             ? json["maxDiscountAmount"]
             : json["maxDiscountAmount"].toDouble(),
         goodsList: List<Product>.from(
-            json["goodsList"].map((x) => Product.fromBrandDetailJson(x))),
+            json["goodsList"].map((x) => Product.fromJson(x))),
         brandFeatures: json["brandFeatures"],
         brandLogo: json["brandLogo"],
         sales: json["sales"],
