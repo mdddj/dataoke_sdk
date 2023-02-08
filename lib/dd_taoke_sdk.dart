@@ -109,30 +109,33 @@ class DdTaokeSdk {
 
   /// 获取商品详情页面所需的基本数据
   /// productId 大淘客商品id
-  Future<DetailBaseDataResult?> getDetailBaseData(
+  Future<DetailBaseDataResult> getDetailBaseData(
       {required String productId, ApiError? apiError}) async {
     final response =
         await util.get('/product-detail-all/$productId', error: apiError);
-    DetailBaseDataResult? result;
+    try{
+      DetailBaseDataResult? result;
+      if (response.isNotEmpty) {
+        final map = jsonDecode(response);
+        final info = map['detail'];
+        final products = map['similarList'];
+        final coupon = map['privieleLink'];
 
-    if (response.isNotEmpty) {
-      final map = jsonDecode(response);
-      final info = map['detail'];
-      final products = map['similarList'];
-      final coupon = map['privieleLink'];
+        var list = <Product>[];
+        for (final item in jsonDecode(products)) {
+          list.add(Product.fromJson(item));
+        }
 
-      var list = <Product>[];
-      for (final item in jsonDecode(products)) {
-        list.add(Product.fromJson(item));
+        result = DetailBaseDataResult(
+            info: Product.fromJson(jsonDecode(info)),
+            similarProducts: list,
+            couponInfo: CouponLinkResult.fromJson(jsonDecode(coupon)));
+        return result;
       }
-
-      result = DetailBaseDataResult(
-          info: Product.fromJson(jsonDecode(info)),
-          similarProducts: list,
-          couponInfo: CouponLinkResult.fromJson(jsonDecode(coupon)));
+    }catch(e){
+      rethrow;
     }
-
-    return result;
+    throw AppException.appError();
   }
 
   /// 获取专题商品
@@ -143,13 +146,12 @@ class DdTaokeSdk {
       'pageSize': pageSize,
       'pageId': page
     });
-    Logger().wtf(jsonDecode(response));
     try{
       final map = jsonDecode(response);
       final list = map['list'] as List<dynamic>;
       return list.covertFun<Product>(list, (object) => Product.fromJson(object));
     }catch(_){
-      return [];
+      rethrow;
     }
   }
 

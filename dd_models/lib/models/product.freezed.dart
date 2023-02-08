@@ -36,7 +36,6 @@ mixin _$Product {
   String get couponStartTime => throw _privateConstructorUsedError;
   num get serviceScore => throw _privateConstructorUsedError;
   String get mainPic => throw _privateConstructorUsedError;
-  num get tchaoshi => throw _privateConstructorUsedError;
   num get id => throw _privateConstructorUsedError;
   num get brand => throw _privateConstructorUsedError;
   String get imgs => throw _privateConstructorUsedError;
@@ -117,7 +116,6 @@ abstract class $ProductCopyWith<$Res> {
       String couponStartTime,
       num serviceScore,
       String mainPic,
-      num tchaoshi,
       num id,
       num brand,
       String imgs,
@@ -201,7 +199,6 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? couponStartTime = null,
     Object? serviceScore = null,
     Object? mainPic = null,
-    Object? tchaoshi = null,
     Object? id = null,
     Object? brand = null,
     Object? imgs = null,
@@ -320,10 +317,6 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.mainPic
           : mainPic // ignore: cast_nullable_to_non_nullable
               as String,
-      tchaoshi: null == tchaoshi
-          ? _value.tchaoshi
-          : tchaoshi // ignore: cast_nullable_to_non_nullable
-              as num,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -560,7 +553,6 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String couponStartTime,
       num serviceScore,
       String mainPic,
-      num tchaoshi,
       num id,
       num brand,
       String imgs,
@@ -641,7 +633,6 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? couponStartTime = null,
     Object? serviceScore = null,
     Object? mainPic = null,
-    Object? tchaoshi = null,
     Object? id = null,
     Object? brand = null,
     Object? imgs = null,
@@ -760,10 +751,6 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.mainPic
           : mainPic // ignore: cast_nullable_to_non_nullable
               as String,
-      tchaoshi: null == tchaoshi
-          ? _value.tchaoshi
-          : tchaoshi // ignore: cast_nullable_to_non_nullable
-              as num,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -996,7 +983,6 @@ class _$_Product implements _Product {
       this.couponStartTime = '',
       this.serviceScore = 0,
       this.mainPic = '',
-      this.tchaoshi = 0,
       this.id = 0,
       this.brand = 0,
       this.imgs = '',
@@ -1102,9 +1088,6 @@ class _$_Product implements _Product {
   @override
   @JsonKey()
   final String mainPic;
-  @override
-  @JsonKey()
-  final num tchaoshi;
   @override
   @JsonKey()
   final num id;
@@ -1269,7 +1252,7 @@ class _$_Product implements _Product {
 
   @override
   String toString() {
-    return 'Product(teamName: $teamName, tbcid: $tbcid, shipPercent: $shipPercent, itemLink: $itemLink, freeshipRemoteDistrict: $freeshipRemoteDistrict, yunfeixian: $yunfeixian, goldSellers: $goldSellers, reimgs: $reimgs, couponLink: $couponLink, haitao: $haitao, sellerId: $sellerId, discounts: $discounts, directCommissionLink: $directCommissionLink, couponStartTime: $couponStartTime, serviceScore: $serviceScore, mainPic: $mainPic, tchaoshi: $tchaoshi, id: $id, brand: $brand, imgs: $imgs, brandName: $brandName, couponConditions: $couponConditions, detailPics: $detailPics, subcid: $subcid, subdivisionId: $subdivisionId, dsrScore: $dsrScore, dailySales: $dailySales, shopLogo: $shopLogo, shopLevel: $shopLevel, couponTotalNum: $couponTotalNum, descScore: $descScore, brandWenan: $brandWenan, activityEndTime: $activityEndTime, shipScore: $shipScore, brandId: $brandId, couponReceiveNum: $couponReceiveNum, shopType: $shopType, cid: $cid, desc: $desc, commissionRate: $commissionRate, originalPrice: $originalPrice, actualPrice: $actualPrice, goodsId: $goodsId, quanMLink: $quanMLink, shopName: $shopName, activityStartTime: $activityStartTime, video: $video, title: $title, dtitle: $dtitle, monthSales: $monthSales, subdivisionRank: $subdivisionRank, hzQuanOver: $hzQuanOver, isSubdivision: $isSubdivision, directCommissionType: $directCommissionType, servicePercent: $servicePercent, commissionType: $commissionType, directCommission: $directCommission, twoHoursSales: $twoHoursSales, dsrPercent: $dsrPercent, estimateAmount: $estimateAmount, couponPrice: $couponPrice, activityType: $activityType, hotPush: $hotPush, marketingMainPic: $marketingMainPic, couponEndTime: $couponEndTime, createTime: $createTime, subdivisionName: $subdivisionName, circleText: $circleText, specialText: $specialText)';
+    return 'Product(teamName: $teamName, tbcid: $tbcid, shipPercent: $shipPercent, itemLink: $itemLink, freeshipRemoteDistrict: $freeshipRemoteDistrict, yunfeixian: $yunfeixian, goldSellers: $goldSellers, reimgs: $reimgs, couponLink: $couponLink, haitao: $haitao, sellerId: $sellerId, discounts: $discounts, directCommissionLink: $directCommissionLink, couponStartTime: $couponStartTime, serviceScore: $serviceScore, mainPic: $mainPic, id: $id, brand: $brand, imgs: $imgs, brandName: $brandName, couponConditions: $couponConditions, detailPics: $detailPics, subcid: $subcid, subdivisionId: $subdivisionId, dsrScore: $dsrScore, dailySales: $dailySales, shopLogo: $shopLogo, shopLevel: $shopLevel, couponTotalNum: $couponTotalNum, descScore: $descScore, brandWenan: $brandWenan, activityEndTime: $activityEndTime, shipScore: $shipScore, brandId: $brandId, couponReceiveNum: $couponReceiveNum, shopType: $shopType, cid: $cid, desc: $desc, commissionRate: $commissionRate, originalPrice: $originalPrice, actualPrice: $actualPrice, goodsId: $goodsId, quanMLink: $quanMLink, shopName: $shopName, activityStartTime: $activityStartTime, video: $video, title: $title, dtitle: $dtitle, monthSales: $monthSales, subdivisionRank: $subdivisionRank, hzQuanOver: $hzQuanOver, isSubdivision: $isSubdivision, directCommissionType: $directCommissionType, servicePercent: $servicePercent, commissionType: $commissionType, directCommission: $directCommission, twoHoursSales: $twoHoursSales, dsrPercent: $dsrPercent, estimateAmount: $estimateAmount, couponPrice: $couponPrice, activityType: $activityType, hotPush: $hotPush, marketingMainPic: $marketingMainPic, couponEndTime: $couponEndTime, createTime: $createTime, subdivisionName: $subdivisionName, circleText: $circleText, specialText: $specialText)';
   }
 
   @override
@@ -1305,8 +1288,6 @@ class _$_Product implements _Product {
             (identical(other.serviceScore, serviceScore) ||
                 other.serviceScore == serviceScore) &&
             (identical(other.mainPic, mainPic) || other.mainPic == mainPic) &&
-            (identical(other.tchaoshi, tchaoshi) ||
-                other.tchaoshi == tchaoshi) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.imgs, imgs) || other.imgs == imgs) &&
@@ -1378,7 +1359,8 @@ class _$_Product implements _Product {
                 other.directCommission == directCommission) &&
             (identical(other.twoHoursSales, twoHoursSales) ||
                 other.twoHoursSales == twoHoursSales) &&
-            (identical(other.dsrPercent, dsrPercent) || other.dsrPercent == dsrPercent) &&
+            (identical(other.dsrPercent, dsrPercent) ||
+                other.dsrPercent == dsrPercent) &&
             (identical(other.estimateAmount, estimateAmount) || other.estimateAmount == estimateAmount) &&
             (identical(other.couponPrice, couponPrice) || other.couponPrice == couponPrice) &&
             (identical(other.activityType, activityType) || other.activityType == activityType) &&
@@ -1411,7 +1393,6 @@ class _$_Product implements _Product {
         couponStartTime,
         serviceScore,
         mainPic,
-        tchaoshi,
         id,
         brand,
         imgs,
@@ -1498,7 +1479,6 @@ abstract class _Product implements Product {
       final String couponStartTime,
       final num serviceScore,
       final String mainPic,
-      final num tchaoshi,
       final num id,
       final num brand,
       final String imgs,
@@ -1586,8 +1566,6 @@ abstract class _Product implements Product {
   num get serviceScore;
   @override
   String get mainPic;
-  @override
-  num get tchaoshi;
   @override
   num get id;
   @override

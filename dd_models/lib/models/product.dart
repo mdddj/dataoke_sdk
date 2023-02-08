@@ -25,7 +25,6 @@ class Product with _$Product {
     @Default('') String couponStartTime,
     @Default(0) num serviceScore,
     @Default('') String mainPic,
-    @Default(0) num tchaoshi,
     @Default(0) num id,
     @Default(0) num brand,
     @Default('') String imgs,
