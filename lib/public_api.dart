@@ -76,7 +76,7 @@ class PublicApi {
     final resutl = await util.get('$userApiUrl/ava-pics', isTaokeApi: false);
     return resutl.isNotEmpty
         ? List<SystemPic>.from((jsonDecode(resutl) as List<dynamic>)
-            .map((e) => SystemPic.fromJson(e))).toList()
+            .map(SystemPic.fromJson)).toList()
         : <SystemPic>[];
   }
 

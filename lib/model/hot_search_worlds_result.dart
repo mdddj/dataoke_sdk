@@ -3,7 +3,7 @@
 //     final hotSearchWorlds = hotSearchWorldsFromJson(jsonString);
 
 part of dataoke_sdk;
-List<HotSearchWorlds> hotSearchWorldsFromJson(String str) => List<HotSearchWorlds>.from(json.decode(str).map((x) => HotSearchWorlds.fromJson(x)));
+List<HotSearchWorlds> hotSearchWorldsFromJson(String str) => List<HotSearchWorlds>.from(json.decode(str).map(HotSearchWorlds.fromJson));
 
 String hotSearchWorldsToJson(List<HotSearchWorlds> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
@@ -26,7 +26,7 @@ class HotSearchWorlds {
   String? label;
   int? hotValue;
 
-  factory HotSearchWorlds.fromJson(Map<String, dynamic> json) => HotSearchWorlds(
+  factory HotSearchWorlds.fromJson(dynamic json) => HotSearchWorlds(
     wordDesc: json["wordDesc"],
     rankNum: json["rankNum"],
     words: json["words"],

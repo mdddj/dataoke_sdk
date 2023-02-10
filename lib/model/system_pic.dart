@@ -8,7 +8,7 @@ class SystemPic {
     this.intro,
   });
 
-  factory SystemPic.fromJson(Map<String, dynamic> jsonRes) => SystemPic(
+  factory SystemPic.fromJson(dynamic jsonRes) => SystemPic(
     id: asT<int>(jsonRes['id'])!,
     url: asT<String>(jsonRes['url'])!,
     type: asT<int>(jsonRes['type'])!,

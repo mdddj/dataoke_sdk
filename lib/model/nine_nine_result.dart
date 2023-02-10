@@ -21,7 +21,7 @@ class NineNineResult {
 
   factory NineNineResult.fromJson(Map<String, dynamic> json) => NineNineResult(
     totalNum: json["totalNum"],
-    list: List<Product>.from(json["list"].map((x) => Product.fromJson(x))),
+    list: List<Product>.from(json["list"].map(Product.fromJson)),
     pageId: json["pageId"],
   );
 

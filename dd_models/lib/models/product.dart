@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
-part 'product.freezed.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'product.freezed.dart';
 part 'product.g.dart';
 
 @freezed
@@ -83,5 +83,5 @@ class Product with _$Product {
 }
 
 IList<Product> getProductsWithResponse(String json) {
-  return List<Product>.from((jsonDecode(json) as List<dynamic>).map((e) => Product.fromJson(e))).lock;
+  return List<Product>.from((jsonDecode(json) as List<dynamic>).map(Product.fromJson)).lock;
 }

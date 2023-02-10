@@ -12,7 +12,6 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
-import 'package:logger/logger.dart';
 
 import 'errors.dart';
 import 'model/category.dart';

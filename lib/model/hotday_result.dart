@@ -21,7 +21,7 @@ class HotdayResult {
 
   factory HotdayResult.fromJson(Map<String, dynamic> json) => HotdayResult(
     totalNum: json["totalNum"],
-    list: List<Product>.from(json["list"].map((x) => Product.fromJson(x))),
+    list: List<Product>.from(json["list"].map(Product.fromJson)),
     pageId: json["pageId"],
   );
 

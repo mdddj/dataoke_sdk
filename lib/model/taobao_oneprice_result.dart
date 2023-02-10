@@ -4,7 +4,7 @@
 
 part of dataoke_sdk;
 
-List<TaobaoOnePriceResult> taobaoOnePriceResultFromJson(String str) => List<TaobaoOnePriceResult>.from(json.decode(str).map((x) => TaobaoOnePriceResult.fromJson(x)));
+List<TaobaoOnePriceResult> taobaoOnePriceResultFromJson(String str) => List<TaobaoOnePriceResult>.from(json.decode(str).map(TaobaoOnePriceResult.fromJson));
 
 String taobaoOnePriceResultToJson(List<TaobaoOnePriceResult> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
@@ -31,7 +31,7 @@ class TaobaoOnePriceResult {
   int? type;
   String? activityInfo;
 
-  factory TaobaoOnePriceResult.fromJson(Map<String, dynamic> json) => TaobaoOnePriceResult(
+  factory TaobaoOnePriceResult.fromJson(dynamic json) => TaobaoOnePriceResult(
     promotionSceneId: json["promotionSceneId"],
     activityEndTime: DateTime.parse(json["activityEndTime"]),
     materialLink: json["materialLink"],

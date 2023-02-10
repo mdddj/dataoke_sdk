@@ -23,7 +23,7 @@ class SpeiderResult {
   factory SpeiderResult.fromJson(Map<String, dynamic> json) => SpeiderResult(
     goScroll: json["goScroll"],
     totalNum: json["totalNum"],
-    list: List<SpeiderListElement>.from(json["list"].map((x) => SpeiderListElement.fromJson(x))),
+    list: List<SpeiderListElement>.from(json["list"].map(SpeiderListElement.fromJson)),
     pageId: json["pageId"],
   );
 
@@ -52,7 +52,7 @@ class SpeiderListElement {
   String? title;
   String? url;
 
-  factory SpeiderListElement.fromJson(Map<String, dynamic> json) => SpeiderListElement(
+  factory SpeiderListElement.fromJson(dynamic json) => SpeiderListElement(
     itemId: json["itemId"],
     img: json["img"],
     remark: json["remark"],
@@ -101,9 +101,9 @@ class SpeiderWithTimeResult {
       curTime: json["curTime"],
       totalNum: totalNumber,
       selectTime: json["selectTime"],
-      list:totalNumber!=0 ? List<SpeiderItemWithTimeItem>.from(json["list"].map((x) => SpeiderItemWithTimeItem.fromJson(x))) : [],
+      list:totalNumber!=0 ? List<SpeiderItemWithTimeItem>.from(json["list"].map(SpeiderItemWithTimeItem.fromJson)) : [],
       pageId: json["pageId"],
-      timeOption:json["timeOption"] !=null ? List<TimeOption>.from(json["timeOption"].map((x) => TimeOption.fromJson(x))) : [],
+      timeOption:json["timeOption"] !=null ? List<TimeOption>.from(json["timeOption"].map(TimeOption.fromJson)) : [],
     );
   }
 
@@ -146,7 +146,7 @@ class SpeiderItemWithTimeItem {
   String? title;
   String? url;
 
-  factory SpeiderItemWithTimeItem.fromJson(Map<String, dynamic> json) => SpeiderItemWithTimeItem(
+  factory SpeiderItemWithTimeItem.fromJson(dynamic json) => SpeiderItemWithTimeItem(
     couponEndTime: json["couponEndTime"],
     itemId: json["itemId"],
     img: json["img"],
@@ -188,7 +188,7 @@ class TimeOption {
   String? label;
   int? value;
 
-  factory TimeOption.fromJson(Map<String, dynamic> json) => TimeOption(
+  factory TimeOption.fromJson(dynamic json) => TimeOption(
     label: json["label"],
     value: json["value"],
   );

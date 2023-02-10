@@ -6,7 +6,7 @@ part of dataoke_sdk;
 
 List<Carousel> carouselFromJson(String str) {
  try{
-   return List<Carousel>.from(json.decode(str).map((x) => Carousel.fromJson(x)));
+   return List<Carousel>.from(json.decode(str).map(Carousel.fromJson));
  }catch(_){
 
    return [];
@@ -32,7 +32,7 @@ class Carousel {
   String? link;
   String? topicName;
 
-  factory Carousel.fromJson(Map<String, dynamic> json) => Carousel(
+  factory Carousel.fromJson(dynamic json) => Carousel(
     topicImage: json["topicImage"],
     activityId: json["activityId"],
     topicId: json["topicId"],

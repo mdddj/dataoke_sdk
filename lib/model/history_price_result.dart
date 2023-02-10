@@ -64,7 +64,7 @@ class HistoryPriceResult {
   factory HistoryPriceResult.fromJson(Map<String, dynamic> json) =>
       HistoryPriceResult(
         historicalPrice: List<HistoricalPrice>.from(
-            json["historicalPrice"].map((x) => HistoricalPrice.fromJson(x))),
+            json["historicalPrice"].map(HistoricalPrice.fromJson)),
         commissionRate: json["commissionRate"].toDouble(),
         brandName: json["brandName"],
         couponConditions: json["couponConditions"],
@@ -128,7 +128,7 @@ class HistoricalPrice {
   DateTime? date;
   double? actualPrice;
 
-  factory HistoricalPrice.fromJson(Map<String, dynamic> json) =>
+  factory HistoricalPrice.fromJson(dynamic json) =>
       HistoricalPrice(
         date: DateTime.parse(json["date"]),
         actualPrice: json["actualPrice"].toDouble(),

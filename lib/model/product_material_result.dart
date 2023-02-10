@@ -4,7 +4,7 @@
 
 part of dataoke_sdk;
 
-List<ProductMaterialResult> productMaterialResultFromJson(String str) => List<ProductMaterialResult>.from(json.decode(str).map((x) => ProductMaterialResult.fromJson(x)));
+List<ProductMaterialResult> productMaterialResultFromJson(String str) => List<ProductMaterialResult>.from(json.decode(str).map(ProductMaterialResult.fromJson));
 
 String productMaterialResultToJson(List<ProductMaterialResult> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
@@ -25,10 +25,10 @@ class ProductMaterialResult {
   int? hot;
   int? newest;
 
-  factory ProductMaterialResult.fromJson(Map<String, dynamic> json) => ProductMaterialResult(
+  factory ProductMaterialResult.fromJson(dynamic json) => ProductMaterialResult(
     headImg: json["headImg"],
     createTime: DateTime.parse(json["createTime"]),
-    materialList: List<MaterialList>.from(json["materialList"].map((x) => MaterialList.fromJson(x))),
+    materialList: List<MaterialList>.from(json["materialList"].map(MaterialList.fromJson)),
     name: json["name"],
     hot: json["hot"],
     newest: json["newest"],
@@ -53,7 +53,7 @@ class MaterialList {
   int? type;
   String? content;
 
-  factory MaterialList.fromJson(Map<String, dynamic> json) => MaterialList(
+  factory MaterialList.fromJson(dynamic json) => MaterialList(
     type: json["type"],
     content: json["content"],
   );

@@ -4,7 +4,7 @@
 
 part of dataoke_sdk;
 
-List<JdOrPddCategory> jdOrPddCategoryFromJson(String str) => List<JdOrPddCategory>.from(json.decode(str).map((x) => JdOrPddCategory.fromJson(x)));
+List<JdOrPddCategory> jdOrPddCategoryFromJson(String str) => List<JdOrPddCategory>.from(json.decode(str).map(JdOrPddCategory.fromJson));
 
 String jdOrPddCategoryToJson(List<JdOrPddCategory> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
@@ -21,7 +21,7 @@ class JdOrPddCategory {
   int id;
   int parentId;
 
-  factory JdOrPddCategory.fromJson(Map<String, dynamic> json) => JdOrPddCategory(
+  factory JdOrPddCategory.fromJson(dynamic json) => JdOrPddCategory(
     level: json["level"],
     name: json["name"],
     id: json["id"],

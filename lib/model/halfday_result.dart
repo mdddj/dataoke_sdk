@@ -21,7 +21,7 @@ class HalfdayResult {
   factory HalfdayResult.fromJson(Map<String, dynamic> json) => HalfdayResult(
         halfPriceInfo: HalfPriceInfo.fromJson(json["halfPriceInfo"]),
         sessionsList: List<SessionsList>.from(
-            json["sessionsList"].map((x) => SessionsList.fromJson(x))),
+            json["sessionsList"].map(SessionsList.fromJson)),
       );
 
   Map<String, dynamic> toJson() => {
@@ -42,7 +42,7 @@ class HalfPriceInfo {
   factory HalfPriceInfo.fromJson(Map<String, dynamic> json) => HalfPriceInfo(
         banner: json["banner"],
         list: List<HalfPriceListElement>.from(
-            json["list"].map((x) => HalfPriceListElement.fromJson(x))),
+            json["list"].map(HalfPriceListElement.fromJson)),
       );
 
   Map<String, dynamic> toJson() => {
@@ -100,7 +100,7 @@ class HalfPriceListElement {
   int? activityType;
   int? tmall;
 
-  factory HalfPriceListElement.fromJson(Map<String, dynamic> json) => HalfPriceListElement(
+  factory HalfPriceListElement.fromJson(dynamic json) => HalfPriceListElement(
         commissionRate: json["commissionRate"].toDouble(),
         todaySellNum: json["todaySellNum"],
         restCount: json["restCount"],
@@ -163,7 +163,7 @@ class SessionsList {
   String? hpdTime;
   String? status;
 
-  factory SessionsList.fromJson(Map<String, dynamic> json) => SessionsList(
+  factory SessionsList.fromJson(dynamic json) => SessionsList(
         hpdTime: json["hpdTime"],
         status: json["status"],
       );

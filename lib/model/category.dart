@@ -13,7 +13,7 @@ part 'category.g.dart';
 
 
 
-List<Category> categoryFromJson(String str) => List<Category>.from(json.decode(str).map((x) => Category.fromJson(x)));
+List<Category> categoryFromJson(String str) => List<Category>.from(json.decode(str).map(Category.fromJson));
 
 String categoryToJson(List<Category> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 @HiveType(typeId: 100)
@@ -34,10 +34,10 @@ class Category {
   @HiveField(3)
   int cid;
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
+  factory Category.fromJson(dynamic json) => Category(
     cname: json["cname"],
     cpic: json["cpic"],
-    subcategories: List<Subcategory>.from(json["subcategories"].map((x) => Subcategory.fromJson(x))),
+    subcategories: List<Subcategory>.from(json["subcategories"].map(Subcategory.fromJson)),
     cid: json["cid"],
   );
 
@@ -64,7 +64,7 @@ class Subcategory {
   @HiveField(2)
   String subcname;
 
-  factory Subcategory.fromJson(Map<String, dynamic> json) => Subcategory(
+  factory Subcategory.fromJson(dynamic json) => Subcategory(
     subcid: json["subcid"],
     scpic: json["scpic"],
     subcname: json["subcname"],

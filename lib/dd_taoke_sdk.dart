@@ -149,7 +149,7 @@ class DdTaokeSdk {
     try{
       final map = jsonDecode(response);
       final list = map['list'] as List<dynamic>;
-      return list.covertFun<Product>(list, (object) => Product.fromJson(object));
+      return list.covertFun<Product>(list, Product.fromJson);
     }catch(_){
       rethrow;
     }
@@ -361,7 +361,7 @@ class DdTaokeSdk {
             mapData: (data) {
       final list = data['list'];
       if (list is List<dynamic>) {
-        result = List<JdProduct>.from((list).map((e) => JdProduct.fromJson(e)))
+        result = List<JdProduct>.from((list).map(JdProduct.fromJson))
             .toList();
       }
     }, error: apiError);
@@ -397,7 +397,7 @@ class DdTaokeSdk {
         mapData: (data) {
       final list = data['list'];
       if (list is List<dynamic>) {
-        result = List<JdProduct>.from((list).map((e) => JdProduct.fromJson(e)))
+        result = List<JdProduct>.from((list).map(JdProduct.fromJson))
             .toList();
       }
     }, error: error);
@@ -413,7 +413,7 @@ class DdTaokeSdk {
         mapData: (data) {
       final list = data['list'];
       if (list is List<dynamic>) {
-        result = List<JdProduct>.from((list).map((e) => JdProduct.fromJson(e)))
+        result = List<JdProduct>.from((list).map(JdProduct.fromJson))
             .toList();
       }
     }, error: error);

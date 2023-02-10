@@ -23,9 +23,9 @@ class DdqResult {
 
   factory DdqResult.fromJson(Map<String, dynamic> json) => DdqResult(
         roundsList: List<RoundsList>.from(
-            json["roundsList"].map((x) => RoundsList.fromJson(x))),
+            json["roundsList"].map(RoundsList.fromJson)),
         goodsList: List<Product>.from(
-            json["goodsList"].map((x) => Product.fromJson(x))),
+            json["goodsList"].map(Product.fromJson)),
         ddqTime: DateTime.parse(json["ddqTime"]),
         status: json["status"],
       );
@@ -47,7 +47,7 @@ class RoundsList {
   DateTime? ddqTime;
   int? status;
 
-  factory RoundsList.fromJson(Map<String, dynamic> json) => RoundsList(
+  factory RoundsList.fromJson(dynamic json) => RoundsList(
         ddqTime: DateTime.parse(json["ddqTime"]),
         status: json["status"],
       );

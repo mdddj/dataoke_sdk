@@ -23,8 +23,8 @@ class SuperSearchResult {
 
   factory SuperSearchResult.fromJson(Map<String, dynamic> json) => SuperSearchResult(
     totalNum: json["totalNum"],
-    brandList: List<BrandList>.from(json["brandList"].map((x) => BrandList.fromJson(x))),
-    list: List<Product>.from(json["list"].map((x) => Product.fromJson(x))),
+    brandList: List<BrandList>.from(json["brandList"].map(BrandList.fromJson)),
+    list: List<Product>.from(json["list"].map(Product.fromJson)),
     pageId: json["pageId"],
   );
 
@@ -47,7 +47,7 @@ class BrandList {
   String? brandId;
   String? brandLogo;
 
-  factory BrandList.fromJson(Map<String, dynamic> json) => BrandList(
+  factory BrandList.fromJson(dynamic json) => BrandList(
     brandName: json["brandName"],
     brandId: json["brandId"],
     brandLogo: json["brandLogo"],

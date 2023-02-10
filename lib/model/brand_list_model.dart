@@ -26,7 +26,7 @@ class BrandListResult {
   factory BrandListResult.fromJson(Map<String, dynamic> json) =>
       BrandListResult(
         lists: List<ListElement>.from(
-            json["lists"].map((x) => ListElement.fromJson(x))),
+            json["lists"].map(ListElement.fromJson)),
         pageSize: json["pageSize"],
         currentPage: json["currentPage"],
         totalCount: json["totalCount"],
@@ -68,7 +68,7 @@ class ListElement {
             ? json["maxDiscountAmount"]
             : json["maxDiscountAmount"].toDouble(),
         goodsList: List<Product>.from(
-            json["goodsList"].map((x) => Product.fromJson(x))),
+            json["goodsList"].map(Product.fromJson)),
         brandFeatures: json["brandFeatures"],
         brandLogo: json["brandLogo"],
         sales: json["sales"],

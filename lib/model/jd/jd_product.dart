@@ -49,7 +49,7 @@ class JdProduct {
     required this.productIntro,
   });
 
-  factory JdProduct.fromJson(Map<String, dynamic> jsonRes) {
+  factory JdProduct.fromJson(dynamic jsonRes) {
     final List<String>? smallImages =
     jsonRes['smallImages'] is List ? <String>[] : null;
     if (smallImages != null) {
