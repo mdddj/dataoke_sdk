@@ -39,9 +39,7 @@ class DdTaokeUtil{
     }
    final api =  TKBaseApi(url,httpMethod: HttpMethod.get);
    try{
-     final r = await api.request(RequestParams(showDefaultLoading: false,data: data,dioStart: (d,u){
-       onStart?.call(d);
-     }));
+     final r = await api.request(RequestParams(showDefaultLoading: false,data: data,dioStart:onStart));
 
      if(r is String) {
        throw AppException.appError();
@@ -99,5 +97,5 @@ typedef ApiError = void Function(int stateCode, String message, dynamic data);
 
 
 /// 发起请求前做的一些事
-typedef OnRequestStart = void Function(Dio dio);
+typedef OnRequestStart = DioStart;
 typedef ResultDataMapHandle = void Function(Map<String, dynamic> map);

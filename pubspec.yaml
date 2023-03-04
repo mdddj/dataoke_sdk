@@ -1,31 +1,33 @@
 name: dataoke_sdk
 description: A Taobao customer interface plug-in. The integrated data comes from Dataoke, Zetaoke, Taobao Union SDK, Pinduoduo SDK, JINGdong SDK.
-version: 2.1.6
+version: 2.2.1
 homepage: https://github.com/mdddj/dataoke_sdk
 
 environment:
-  sdk: ">=2.18.6 <3.0.0"
-  flutter: ">=3.3.0"
+  sdk: ">=2.19.2 <3.0.0"
+  flutter: ">=3.7.3"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
-  diox: ^5.0.0
-  logger: ^1.1.0
+  dio: ^5.0.1
+  logger: ^1.2.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  dd_js_util: ^3.0.2
+  dd_js_util: ^3.2.1
   freezed_annotation: ^2.2.0
-  fast_immutable_collections: ^8.2.0
-  dd_models: ^0.0.1
+  fast_immutable_collections: ^9.0.0
+  dd_models:
+    path: ./dd_models
 
 dev_dependencies:
   flutter_lints: ^2.0.1
   hive_generator: ^2.0.0
   build_runner: ^2.3.3
   freezed: ^2.3.2
+
+dependency_overrides:
+  meta: ^1.9.0
 
 flutter:
 

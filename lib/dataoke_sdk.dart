@@ -7,7 +7,7 @@ import 'dart:developer';
 import 'package:dd_js_util/api/request_params.dart';
 import 'package:dd_js_util/dd_js_util.dart';
 import 'package:dd_models/models/product.dart';
-import 'package:diox/diox.dart';
+import 'package:dio/dio.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
