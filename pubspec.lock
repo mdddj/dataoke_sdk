@@ -228,9 +228,10 @@ packages:
   dd_models:
     dependency: "direct main"
     description:
-      path: dd_models
-      relative: true
-    source: path
+      name: dd_models
+      sha256: "032ac50397735e71fbafe62cfb69010ba21526f2d6796e9b693ec454ad316ac7"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.2"
   decimal:
     dependency: transitive

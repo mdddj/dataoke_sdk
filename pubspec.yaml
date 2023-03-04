@@ -17,8 +17,7 @@ dependencies:
   dd_js_util: ^3.2.1
   freezed_annotation: ^2.2.0
   fast_immutable_collections: ^9.0.0
-  dd_models:
-    path: ./dd_models
+  dd_models: ^0.0.2
 
 dev_dependencies:
   flutter_lints: ^2.0.1
