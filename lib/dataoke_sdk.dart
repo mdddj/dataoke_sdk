@@ -7,20 +7,15 @@ import 'dart:developer';
 import 'package:dd_js_util/api/request_params.dart';
 import 'package:dd_js_util/dd_js_util.dart';
 import 'package:dd_models/models/product.dart';
-import 'package:dio/dio.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 
-import 'errors.dart';
 import 'model/category.dart';
 
 part './apis/apis.dart';
 part './apis/taoke_request.dart';
-part 'blog/base_api.dart';
-part 'blog/blog_model.dart';
-part 'blog/blog_service.dart';
 part './constant/sort.dart';
 part './model/jd/jd_product.dart';
 part './model/jd/jd_req_param.dart';
@@ -72,8 +67,6 @@ part './params/top_param.dart';
 part './params/wechat_param.dart';
 part './constant/hive_keys.dart';
 part 'dd_taoke_sdk.dart';
-part 'public_api.dart';
-part 'jd_api.dart';
 typedef ProductModel = Product;
 class DataokeSdk {
   static const MethodChannel _channel = MethodChannel('dataoke_sdk');
