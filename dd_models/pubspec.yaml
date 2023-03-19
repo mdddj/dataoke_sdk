@@ -1,11 +1,11 @@
 name: dd_models
 description: diandian de model with flutter plugin
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/mdddj/dataoke_sdk
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
-  flutter: ">=3.0.0"
+  sdk: '>=2.17.4 <3.0.0'
+  flutter: ">=3.7.7"
 
 dependencies:
   flutter:

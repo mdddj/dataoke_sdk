@@ -49,9 +49,10 @@ class DdTaokeSdk {
   }
 
   /// 获取轮播图
-  Future<List<Carousel>> getCarousel() async {
+  Future<List<Carousel>> getCarousel({RequestParamsBuilder? requestParamsBuilder}) async {
     final response = await util.get(
       '/carousel-list',
+      requestParams: requestParamsBuilder?.call(const RequestParams(showDefaultLoading: false))
     );
     return response.isNotEmpty ? carouselFromJson(response) : [];
   }
@@ -153,10 +154,11 @@ class DdTaokeSdk {
 
   /// hot-search-worlds
   /// 热搜榜
-  Future<List<HotSearchWorlds>> getHotSearchWorlds() async {
+  Future<List<HotSearchWorlds>> getHotSearchWorlds({RequestParamsBuilder? requestParamsBuilder}) async {
     const url = '/hot-search-worlds';
     final response = await util.get(
       url,
+      requestParams: requestParamsBuilder?.call(const RequestParams(showDefaultLoading: false))
     );
     return response.isNotEmpty ? hotSearchWorldsFromJson(response) : [];
   }
@@ -171,13 +173,12 @@ class DdTaokeSdk {
   /// 线报分支 整点抢购 topic = 3
   Future<SpeiderWithTimeResult?> getSpeiderListWithTime({
     required SpeiderParam param,
+    required RequestParamsBuilder requestParamsBuilder
   }) async {
     param.topic = '3';
     final result = await getSpeiderList(
       param: param,
-      requestParamsBuilder: (RequestParams requestParams) {
-        return requestParams;
-      },
+      requestParamsBuilder: requestParamsBuilder,
     );
     return result != null ? SpeiderWithTimeResult.fromJson(result) : null;
   }
