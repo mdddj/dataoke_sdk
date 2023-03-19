@@ -229,10 +229,10 @@ packages:
     dependency: "direct main"
     description:
       name: dd_models
-      sha256: "032ac50397735e71fbafe62cfb69010ba21526f2d6796e9b693ec454ad316ac7"
+      sha256: "2fa2ba708439c25c08280daed8b36cc7bcca9acf959e83c11865efeba3f13419"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   decimal:
     dependency: transitive
     description:

@@ -1,6 +1,6 @@
 name: dataoke_sdk
 description: A Taobao customer interface plug-in. The integrated data comes from Dataoke, Zetaoke, Taobao Union SDK, Pinduoduo SDK, JINGdong SDK.
-version: 2.3.0
+version: 2.3.1
 homepage: https://github.com/mdddj/dataoke_sdk
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
   dd_js_util: ^3.4.0
   freezed_annotation: ^2.2.0
   fast_immutable_collections: ^9.0.0
-  dd_models: ^0.0.2
+  dd_models: ^0.0.3
 
 dev_dependencies:
   flutter_lints: ^2.0.1

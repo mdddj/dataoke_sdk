@@ -1,6 +1,7 @@
 part of dataoke_sdk;
 
 
+
 class ActivityLinkResult {
   ActivityLinkResult({
     required this.terminalType,

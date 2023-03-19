@@ -54,7 +54,7 @@ class DdTaokeSdk {
       '/carousel-list',
       requestParams: requestParamsBuilder?.call(const RequestParams(showDefaultLoading: false))
     );
-    return response.isNotEmpty ? carouselFromJson(response) : [];
+    return response.isNotEmpty ? List<Carousel>.from((jsonDecode(response) as List<dynamic>).map((dynamic e) => Carousel.fromJson(e as Map<String,dynamic>))) : [];
   }
 
   /// 获取品牌列表
