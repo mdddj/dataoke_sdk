@@ -1,7 +1,7 @@
 // To parse this JSON data, do
 //
 //     final wechatParam = wechatParamFromJson(jsonString);
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 
 WechatParam wechatParamFromJson(String str) => WechatParam.fromJson(json.decode(str));

@@ -6,24 +6,25 @@ import 'dart:developer';
 
 import 'package:dd_js_util/api/request_params.dart';
 import 'package:dd_js_util/dd_js_util.dart';
+import 'package:dd_js_util/model/base_api_exception.dart';
+import 'package:dd_js_util/model/dart_type_model.dart';
+import 'package:dd_models/models/brand.dart';
 import 'package:dd_models/models/carousel.dart';
 import 'package:dd_models/models/product.dart';
+import 'package:dio/dio.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
+import 'package:logger/logger.dart';
 
 import 'model/category.dart';
 
-part './apis/apis.dart';
-part './apis/taoke_request.dart';
 part './constant/sort.dart';
 part './model/jd/jd_product.dart';
 part './model/jd/jd_req_param.dart';
 part './model/pdd/pdd_category.dart';
 part './model/activity_link_result.dart';
 part './model/brand_detail_result.dart';
-part './model/brand_list_model.dart';
 part './model/coupon_link_result.dart';
 part './model/ddq_result.dart';
 part './model/detail_base_data.dart';
@@ -67,12 +68,5 @@ part './params/top_param.dart';
 part './params/wechat_param.dart';
 part './constant/hive_keys.dart';
 part 'dd_taoke_sdk.dart';
-typedef ProductModel = Product;
-class DataokeSdk {
-  static const MethodChannel _channel = MethodChannel('dataoke_sdk');
 
-  static Future<String?> get platformVersion async {
-    final String? version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
-}
+typedef ProductModel = Product;

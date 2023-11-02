@@ -1,5 +1,5 @@
 // Dart imports:
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 class FFConvert {
   FFConvert._();

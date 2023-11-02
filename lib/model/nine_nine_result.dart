@@ -2,7 +2,7 @@
 //
 //     final nineNineResult = nineNineResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 NineNineResult nineNineResultFromJson(String str) => NineNineResult.fromJson(json.decode(str));
 

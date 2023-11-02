@@ -2,7 +2,7 @@
 //
 //     final productMaterialResult = productMaterialResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 List<ProductMaterialResult> productMaterialResultFromJson(String str) => List<ProductMaterialResult>.from(json.decode(str).map(ProductMaterialResult.fromJson));
 

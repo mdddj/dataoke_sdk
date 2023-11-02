@@ -2,7 +2,7 @@
 //
 //     final speiderParam = speiderParamFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 SpeiderParam speiderParamFromJson(String str) =>
     SpeiderParam.fromJson(json.decode(str));

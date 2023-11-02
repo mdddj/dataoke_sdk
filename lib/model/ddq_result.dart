@@ -2,7 +2,7 @@
 //
 //     final ddqResult = ddqResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 DdqResult ddqResultFromJson(String str) => DdqResult.fromJson(json.decode(str));
 

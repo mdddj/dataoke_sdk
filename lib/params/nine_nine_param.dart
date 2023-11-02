@@ -2,7 +2,7 @@
 //
 //     final nineNineParam = nineNineParamFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 NineNineParam nineNineParamFromJson(String str) => NineNineParam.fromJson(json.decode(str));
 

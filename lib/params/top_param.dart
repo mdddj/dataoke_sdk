@@ -2,7 +2,7 @@
 //
 //     final topParam = topParamFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 
 TopParam topParamFromJson(String str) => TopParam.fromJson(json.decode(str));

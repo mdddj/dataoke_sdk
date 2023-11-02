@@ -2,7 +2,7 @@
 //
 //     final commentParam = commentParamFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 CommentParam commentParamFromJson(String str) => CommentParam.fromJson(json.decode(str));
 

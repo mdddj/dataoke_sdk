@@ -2,7 +2,7 @@
 //
 //     final liveDataResult = liveDataResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 LiveDataResult liveDataResultFromJson(String str) => LiveDataResult.fromJson(json.decode(str));
 

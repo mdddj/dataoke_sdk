@@ -2,7 +2,7 @@
 // To parse this JSON data, do
 //
 //     final brandListParam = brandListParamFromJson(jsonString);
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 BrandListParam brandListParamFromJson(String str) => BrandListParam.fromJson(json.decode(str));
 

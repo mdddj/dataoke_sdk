@@ -29,9 +29,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       brandName: json['brandName'] as String? ?? '',
       couponConditions: json['couponConditions'] as String? ?? '',
       detailPics: json['detailPics'] as String? ?? '',
-      subcid: json['subcid'] == null
-          ? const IListConst([])
-          : IList<int>.fromJson(json['subcid'], (value) => value as int),
+      subcid: json['subcid'] as List<dynamic>? ?? const [],
       subdivisionId: json['subdivisionId'] as num? ?? 0,
       dsrScore: json['dsrScore'] as num? ?? 0,
       dailySales: json['dailySales'] as num? ?? 0,
@@ -42,7 +40,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       brandWenan: json['brandWenan'] as String? ?? '',
       activityEndTime: json['activityEndTime'] as String? ?? '',
       shipScore: json['shipScore'] as num? ?? 0,
-      brandId: json['brandId'] as num? ?? 0,
+      brandId: json['brandId'],
       couponReceiveNum: json['couponReceiveNum'] as num? ?? 0,
       shopType: json['shopType'] as num? ?? 0,
       cid: json['cid'] as num? ?? 0,
@@ -76,10 +74,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       createTime: json['createTime'] as String? ?? '',
       subdivisionName: json['subdivisionName'] as String? ?? '',
       circleText: json['circleText'] as String? ?? '',
-      specialText: (json['specialText'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
+      specialText: json['specialText'] as List<dynamic>? ?? const [],
     );
 
 Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
@@ -106,9 +101,7 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'brandName': instance.brandName,
       'couponConditions': instance.couponConditions,
       'detailPics': instance.detailPics,
-      'subcid': instance.subcid.toJson(
-        (value) => value,
-      ),
+      'subcid': instance.subcid,
       'subdivisionId': instance.subdivisionId,
       'dsrScore': instance.dsrScore,
       'dailySales': instance.dailySales,

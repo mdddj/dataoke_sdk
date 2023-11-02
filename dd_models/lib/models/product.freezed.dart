@@ -42,7 +42,7 @@ mixin _$Product {
   String get brandName => throw _privateConstructorUsedError;
   String get couponConditions => throw _privateConstructorUsedError;
   String get detailPics => throw _privateConstructorUsedError;
-  IList<int> get subcid => throw _privateConstructorUsedError;
+  List<dynamic> get subcid => throw _privateConstructorUsedError;
   num get subdivisionId => throw _privateConstructorUsedError;
   num get dsrScore => throw _privateConstructorUsedError;
   num get dailySales => throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ mixin _$Product {
   String get brandWenan => throw _privateConstructorUsedError;
   String get activityEndTime => throw _privateConstructorUsedError;
   num get shipScore => throw _privateConstructorUsedError;
-  num get brandId => throw _privateConstructorUsedError;
+  dynamic get brandId => throw _privateConstructorUsedError;
   num get couponReceiveNum => throw _privateConstructorUsedError;
   num get shopType => throw _privateConstructorUsedError;
   num get cid => throw _privateConstructorUsedError;
@@ -87,7 +87,7 @@ mixin _$Product {
   String get createTime => throw _privateConstructorUsedError;
   String get subdivisionName => throw _privateConstructorUsedError;
   String get circleText => throw _privateConstructorUsedError;
-  List<String> get specialText => throw _privateConstructorUsedError;
+  List<dynamic> get specialText => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -122,7 +122,7 @@ abstract class $ProductCopyWith<$Res> {
       String brandName,
       String couponConditions,
       String detailPics,
-      IList<int> subcid,
+      List<dynamic> subcid,
       num subdivisionId,
       num dsrScore,
       num dailySales,
@@ -133,7 +133,7 @@ abstract class $ProductCopyWith<$Res> {
       String brandWenan,
       String activityEndTime,
       num shipScore,
-      num brandId,
+      dynamic brandId,
       num couponReceiveNum,
       num shopType,
       num cid,
@@ -167,7 +167,7 @@ abstract class $ProductCopyWith<$Res> {
       String createTime,
       String subdivisionName,
       String circleText,
-      List<String> specialText});
+      List<dynamic> specialText});
 }
 
 /// @nodoc
@@ -216,7 +216,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? brandWenan = null,
     Object? activityEndTime = null,
     Object? shipScore = null,
-    Object? brandId = null,
+    Object? brandId = freezed,
     Object? couponReceiveNum = null,
     Object? shopType = null,
     Object? cid = null,
@@ -344,7 +344,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       subcid: null == subcid
           ? _value.subcid
           : subcid // ignore: cast_nullable_to_non_nullable
-              as IList<int>,
+              as List<dynamic>,
       subdivisionId: null == subdivisionId
           ? _value.subdivisionId
           : subdivisionId // ignore: cast_nullable_to_non_nullable
@@ -385,10 +385,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.shipScore
           : shipScore // ignore: cast_nullable_to_non_nullable
               as num,
-      brandId: null == brandId
+      brandId: freezed == brandId
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
-              as num,
+              as dynamic,
       couponReceiveNum: null == couponReceiveNum
           ? _value.couponReceiveNum
           : couponReceiveNum // ignore: cast_nullable_to_non_nullable
@@ -524,7 +524,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       specialText: null == specialText
           ? _value.specialText
           : specialText // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<dynamic>,
     ) as $Val);
   }
 }
@@ -559,7 +559,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String brandName,
       String couponConditions,
       String detailPics,
-      IList<int> subcid,
+      List<dynamic> subcid,
       num subdivisionId,
       num dsrScore,
       num dailySales,
@@ -570,7 +570,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String brandWenan,
       String activityEndTime,
       num shipScore,
-      num brandId,
+      dynamic brandId,
       num couponReceiveNum,
       num shopType,
       num cid,
@@ -604,7 +604,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String createTime,
       String subdivisionName,
       String circleText,
-      List<String> specialText});
+      List<dynamic> specialText});
 }
 
 /// @nodoc
@@ -650,7 +650,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? brandWenan = null,
     Object? activityEndTime = null,
     Object? shipScore = null,
-    Object? brandId = null,
+    Object? brandId = freezed,
     Object? couponReceiveNum = null,
     Object? shopType = null,
     Object? cid = null,
@@ -776,9 +776,9 @@ class __$$_ProductCopyWithImpl<$Res>
           : detailPics // ignore: cast_nullable_to_non_nullable
               as String,
       subcid: null == subcid
-          ? _value.subcid
+          ? _value._subcid
           : subcid // ignore: cast_nullable_to_non_nullable
-              as IList<int>,
+              as List<dynamic>,
       subdivisionId: null == subdivisionId
           ? _value.subdivisionId
           : subdivisionId // ignore: cast_nullable_to_non_nullable
@@ -819,10 +819,10 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.shipScore
           : shipScore // ignore: cast_nullable_to_non_nullable
               as num,
-      brandId: null == brandId
+      brandId: freezed == brandId
           ? _value.brandId
           : brandId // ignore: cast_nullable_to_non_nullable
-              as num,
+              as dynamic,
       couponReceiveNum: null == couponReceiveNum
           ? _value.couponReceiveNum
           : couponReceiveNum // ignore: cast_nullable_to_non_nullable
@@ -958,7 +958,7 @@ class __$$_ProductCopyWithImpl<$Res>
       specialText: null == specialText
           ? _value._specialText
           : specialText // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<dynamic>,
     ));
   }
 }
@@ -989,7 +989,7 @@ class _$_Product implements _Product {
       this.brandName = '',
       this.couponConditions = '',
       this.detailPics = '',
-      this.subcid = const IListConst([]),
+      final List<dynamic> subcid = const [],
       this.subdivisionId = 0,
       this.dsrScore = 0,
       this.dailySales = 0,
@@ -1000,7 +1000,7 @@ class _$_Product implements _Product {
       this.brandWenan = '',
       this.activityEndTime = '',
       this.shipScore = 0,
-      this.brandId = 0,
+      this.brandId,
       this.couponReceiveNum = 0,
       this.shopType = 0,
       this.cid = 0,
@@ -1034,8 +1034,9 @@ class _$_Product implements _Product {
       this.createTime = '',
       this.subdivisionName = '',
       this.circleText = '',
-      final List<String> specialText = const []})
-      : _specialText = specialText;
+      final List<dynamic> specialText = const []})
+      : _subcid = subcid,
+        _specialText = specialText;
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
       _$$_ProductFromJson(json);
@@ -1106,9 +1107,15 @@ class _$_Product implements _Product {
   @override
   @JsonKey()
   final String detailPics;
+  final List<dynamic> _subcid;
   @override
   @JsonKey()
-  final IList<int> subcid;
+  List<dynamic> get subcid {
+    if (_subcid is EqualUnmodifiableListView) return _subcid;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_subcid);
+  }
+
   @override
   @JsonKey()
   final num subdivisionId;
@@ -1140,8 +1147,7 @@ class _$_Product implements _Product {
   @JsonKey()
   final num shipScore;
   @override
-  @JsonKey()
-  final num brandId;
+  final dynamic brandId;
   @override
   @JsonKey()
   final num couponReceiveNum;
@@ -1241,10 +1247,10 @@ class _$_Product implements _Product {
   @override
   @JsonKey()
   final String circleText;
-  final List<String> _specialText;
+  final List<dynamic> _specialText;
   @override
   @JsonKey()
-  List<String> get specialText {
+  List<dynamic> get specialText {
     if (_specialText is EqualUnmodifiableListView) return _specialText;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_specialText);
@@ -1297,7 +1303,7 @@ class _$_Product implements _Product {
                 other.couponConditions == couponConditions) &&
             (identical(other.detailPics, detailPics) ||
                 other.detailPics == detailPics) &&
-            const DeepCollectionEquality().equals(other.subcid, subcid) &&
+            const DeepCollectionEquality().equals(other._subcid, _subcid) &&
             (identical(other.subdivisionId, subdivisionId) ||
                 other.subdivisionId == subdivisionId) &&
             (identical(other.dsrScore, dsrScore) ||
@@ -1318,7 +1324,7 @@ class _$_Product implements _Product {
                 other.activityEndTime == activityEndTime) &&
             (identical(other.shipScore, shipScore) ||
                 other.shipScore == shipScore) &&
-            (identical(other.brandId, brandId) || other.brandId == brandId) &&
+            const DeepCollectionEquality().equals(other.brandId, brandId) &&
             (identical(other.couponReceiveNum, couponReceiveNum) ||
                 other.couponReceiveNum == couponReceiveNum) &&
             (identical(other.shopType, shopType) ||
@@ -1399,7 +1405,7 @@ class _$_Product implements _Product {
         brandName,
         couponConditions,
         detailPics,
-        const DeepCollectionEquality().hash(subcid),
+        const DeepCollectionEquality().hash(_subcid),
         subdivisionId,
         dsrScore,
         dailySales,
@@ -1410,7 +1416,7 @@ class _$_Product implements _Product {
         brandWenan,
         activityEndTime,
         shipScore,
-        brandId,
+        const DeepCollectionEquality().hash(brandId),
         couponReceiveNum,
         shopType,
         cid,
@@ -1485,7 +1491,7 @@ abstract class _Product implements Product {
       final String brandName,
       final String couponConditions,
       final String detailPics,
-      final IList<int> subcid,
+      final List<dynamic> subcid,
       final num subdivisionId,
       final num dsrScore,
       final num dailySales,
@@ -1496,7 +1502,7 @@ abstract class _Product implements Product {
       final String brandWenan,
       final String activityEndTime,
       final num shipScore,
-      final num brandId,
+      final dynamic brandId,
       final num couponReceiveNum,
       final num shopType,
       final num cid,
@@ -1530,7 +1536,7 @@ abstract class _Product implements Product {
       final String createTime,
       final String subdivisionName,
       final String circleText,
-      final List<String> specialText}) = _$_Product;
+      final List<dynamic> specialText}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
@@ -1579,7 +1585,7 @@ abstract class _Product implements Product {
   @override
   String get detailPics;
   @override
-  IList<int> get subcid;
+  List<dynamic> get subcid;
   @override
   num get subdivisionId;
   @override
@@ -1601,7 +1607,7 @@ abstract class _Product implements Product {
   @override
   num get shipScore;
   @override
-  num get brandId;
+  dynamic get brandId;
   @override
   num get couponReceiveNum;
   @override
@@ -1669,7 +1675,7 @@ abstract class _Product implements Product {
   @override
   String get circleText;
   @override
-  List<String> get specialText;
+  List<dynamic> get specialText;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

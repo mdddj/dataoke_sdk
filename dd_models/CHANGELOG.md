@@ -1,3 +1,11 @@
+## 0.0.5
+
+* update model
+
+## 0.0.4
+
+* upgrade to dart 3.0
+
 ## 0.0.3
 
 * 添加新model`Carousel`

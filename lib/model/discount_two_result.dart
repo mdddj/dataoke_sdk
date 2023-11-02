@@ -2,7 +2,7 @@
 //
 //     final discountTwoResult = discountTwoResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 DiscountTwoResult discountTwoResultFromJson(String str) => DiscountTwoResult.fromJson(json.decode(str));
 

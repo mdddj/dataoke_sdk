@@ -2,7 +2,7 @@
 //
 //     final taobaoOnePriceParam = taobaoOnePriceParamFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 
 TaobaoOnePriceParam taobaoOnePriceParamFromJson(String str) =>

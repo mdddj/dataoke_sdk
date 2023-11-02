@@ -2,7 +2,7 @@
 //
 //     final resCategory = resCategoryFromMap(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 class ResCategory {
   ResCategory({

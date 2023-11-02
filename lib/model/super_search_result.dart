@@ -2,7 +2,7 @@
 //
 //     final superSearchResult = superSearchResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 SuperSearchResult superSearchResultFromJson(String str) => SuperSearchResult.fromJson(json.decode(str));
 

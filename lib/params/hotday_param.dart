@@ -2,7 +2,7 @@
 //
 //     final hotdayParam = hotdayParamFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 
 HotdayParam hotdayParamFromJson(String str) => HotdayParam.fromJson(json.decode(str));

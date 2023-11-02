@@ -100,7 +100,7 @@ class CategoryWrapperAdapter extends TypeAdapter<CategoryWrapper> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return CategoryWrapper(
-      (fields[0] as List).cast<Category>(),
+      categorys: (fields[0] as List).cast<Category>(),
     );
   }
 
@@ -122,3 +122,55 @@ class CategoryWrapperAdapter extends TypeAdapter<CategoryWrapper> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
+    _$CategoryImpl(
+      cname: json['cname'] as String? ?? '',
+      cpic: json['cpic'] as String? ?? '',
+      subcategories: (json['subcategories'] as List<dynamic>?)
+              ?.map((e) => Subcategory.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      cid: json['cid'] as int? ?? 0,
+    );
+
+Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
+    <String, dynamic>{
+      'cname': instance.cname,
+      'cpic': instance.cpic,
+      'subcategories': instance.subcategories,
+      'cid': instance.cid,
+    };
+
+_$SubcategoryImpl _$$SubcategoryImplFromJson(Map<String, dynamic> json) =>
+    _$SubcategoryImpl(
+      subcid: json['subcid'] as int? ?? 0,
+      scpic: json['scpic'] as String? ?? '',
+      subcname: json['subcname'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$$SubcategoryImplToJson(_$SubcategoryImpl instance) =>
+    <String, dynamic>{
+      'subcid': instance.subcid,
+      'scpic': instance.scpic,
+      'subcname': instance.subcname,
+    };
+
+_$CategoryWrapperImpl _$$CategoryWrapperImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CategoryWrapperImpl(
+      categorys: (json['categorys'] as List<dynamic>?)
+              ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+    );
+
+Map<String, dynamic> _$$CategoryWrapperImplToJson(
+        _$CategoryWrapperImpl instance) =>
+    <String, dynamic>{
+      'categorys': instance.categorys,
+    };

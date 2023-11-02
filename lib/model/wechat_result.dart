@@ -1,5 +1,5 @@
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 
 class WechatResult {

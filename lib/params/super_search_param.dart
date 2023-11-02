@@ -2,7 +2,7 @@
 //
 //     final superSearchParam = superSearchParamFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 
 SuperSearchParam superSearchParamFromJson(String str) =>

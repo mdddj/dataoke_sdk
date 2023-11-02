@@ -4,83 +4,58 @@
 
 
 
-import 'dart:convert';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'category.g.dart';
 
+part 'category.freezed.dart';
 
 
 
-List<Category> categoryFromJson(String str) => List<Category>.from(json.decode(str).map(Category.fromJson));
-
-String categoryToJson(List<Category> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+@freezed
 @HiveType(typeId: 100)
-class Category {
-  Category({
-    required this.cname,
-    required this.cpic,
-    required this.subcategories,
-    required this.cid,
-  });
+class Category with _$Category {
+  const Category._();
 
-  @HiveField(0)
-  String cname;
-  @HiveField(1)
-  String cpic;
-  @HiveField(2)
-  List<Subcategory> subcategories;
-  @HiveField(3)
-  int cid;
+  const factory Category({
+    @HiveField(0) @Default('') String cname,
+    @HiveField(1) @Default('') String cpic,
+    @HiveField(2) @Default([]) List<Subcategory> subcategories,
+    @HiveField(3) @Default(0) int cid,
+  }) = _Category;
 
-  factory Category.fromJson(dynamic json) => Category(
-    cname: json["cname"],
-    cpic: json["cpic"],
-    subcategories: List<Subcategory>.from(json["subcategories"].map(Subcategory.fromJson)),
-    cid: json["cid"],
-  );
+  factory Category.fromJson(dynamic json) => _$CategoryFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-    "cname": cname,
-    "cpic": cpic,
-    "subcategories": List<dynamic>.from(subcategories.map((x) => x.toJson())),
-    "cid": cid,
-  };
 }
 
+
+@freezed
 @HiveType(typeId: 101)
-class Subcategory {
-  Subcategory({
-    required this.subcid,
-    required this.scpic,
-    required this.subcname,
-  });
+class Subcategory with _$Subcategory {
+  const Subcategory._();
 
-  @HiveField(0)
-  int subcid;
-  @HiveField(1)
-  String scpic;
-  @HiveField(2)
-  String subcname;
+  const factory Subcategory({
+    @HiveField(0)  @Default(0) int subcid,
+    @HiveField(1) @Default('') String scpic,
+    @HiveField(2) @Default('') String subcname,
+  }) = _Subcategory;
 
-  factory Subcategory.fromJson(dynamic json) => Subcategory(
-    subcid: json["subcid"],
-    scpic: json["scpic"],
-    subcname: json["subcname"],
-  );
+  factory Subcategory.fromJson(Map<String, dynamic> json) => _$SubcategoryFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-    "subcid": subcid,
-    "scpic": scpic,
-    "subcname": subcname,
-  };
 }
 
+
+@freezed
 @HiveType(typeId: 102)
-class CategoryWrapper {
-  @HiveField(0)
-  final List<Category> categorys;
-  CategoryWrapper(this.categorys);
+class CategoryWrapper with _$CategoryWrapper {
+  const CategoryWrapper._();
+
+  const factory CategoryWrapper({
+    @HiveField(0) @Default([]) List<Category> categorys,
+  }) = _CategoryWrapper;
+
+  factory CategoryWrapper.fromJson(Map<String, dynamic> json) => _$CategoryWrapperFromJson(json);
 
 }

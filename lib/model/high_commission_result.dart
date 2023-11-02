@@ -2,7 +2,7 @@
 //
 //     final HighCommissionResult = HighCommissionResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 HighCommissionResult highCommissionResultFromJson(String str) =>
     HighCommissionResult.fromJson(json.decode(str));

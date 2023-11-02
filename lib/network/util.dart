@@ -1,11 +1,51 @@
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 typedef IfPrint = bool Function(String path);
+extension DartTypeModelEx3 on DartTypeModel {
+  void throwBizError() {
+    whenOrNull(
+      json: (value) {
+        Logger().t(value);
+        if (value.json.getValue('success') == false) {
+          throw BaseApiException.businessException(message: value['message']);
+        }
+      },
+    );
+  }
 
-class TKBaseApi extends BaseApi {
+  DartTypeModel getData() {
+    throwBizError();
+    return whenOrNull(
+      json: (value) {
+        return DartTypeModel.createFrom(value.json
+            .getValue('data'));
+      },
+    ) ??
+        const DartTypeModel.nil();
+  }
+}
+
+
+class TKBaseApi extends BaseApi<DartTypeModel> {
   final String apiUrl;
 
+  static BaseOptions opt = BaseOptions();
+
   TKBaseApi(this.apiUrl, {HttpMethod httpMethod = HttpMethod.get}) : super(apiUrl, httpMethod: httpMethod);
+
+
+  @override
+  Future<BaseOptions> get getOptions async => opt;
+
+  @override
+  DartTypeModel covertToModel(DartTypeModel data, RequestParams param) {
+    return data;
+  }
+
+
+
+
+
 }
 
 class DdTaokeUtil {
@@ -31,26 +71,12 @@ class DdTaokeUtil {
     }
     final api = TKBaseApi(url, httpMethod: HttpMethod.get);
     try {
-      final r = await api.request(requestParams);
-
-      if (r is String) {
-        throw AppException.appError();
-      }
-      final json = WrapJson(r as Map<String, dynamic>);
-      if (json.getInt('state') == 200) {
-        final data = json.getValue('data');
-        if (data is String) {
-          return data;
-        } else {
-          return jsonEncode(data);
-        }
-      }
-    } on AppException catch (_) {
+      final r = await api.request(requestParams??const RequestParams());
+      return r.getData().whenOrNull(string: (value) => value,json: jsonEncode).ifNullThrowBizException();
+    } on BaseApiException catch (_) {
       rethrow;
-    } catch (e, s) {
-      debugPrintStack(stackTrace: s, label: e.toString());
     }
-    throw AppException(code: -10001, message: '获取数据失败');
+
   }
 
   /// POST 请求
@@ -62,14 +88,8 @@ class DdTaokeUtil {
     final api = TKBaseApi(url, httpMethod: HttpMethod.post);
     try {
       final r = await api.request(RequestParams(showDefaultLoading: false, data: data));
-      final json = WrapJson(r as Map<String, dynamic>);
-      if (json.getInt('state', defaultValue: 0) == 200) {
-        final dataString = json.getString('data');
-        return dataString;
-      } else {
-        throw AppException(code: json.getInt('state'), message: json.getString('message'));
-      }
-    } on AppException catch (_) {
+      return r.getData().whenOrNull(string: (value) => value,json: jsonEncode).ifNullThrowBizException();
+    } on BaseApiException catch (_) {
       rethrow;
     }
   }

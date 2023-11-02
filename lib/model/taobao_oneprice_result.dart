@@ -2,7 +2,7 @@
 //
 //     final taobaoOnePriceResult = taobaoOnePriceResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 List<TaobaoOnePriceResult> taobaoOnePriceResultFromJson(String str) => List<TaobaoOnePriceResult>.from(json.decode(str).map(TaobaoOnePriceResult.fromJson));
 

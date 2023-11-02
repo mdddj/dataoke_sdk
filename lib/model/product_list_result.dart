@@ -2,14 +2,13 @@
 //
 //     final productList = productListFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 ProductListResult productListFromJson(String str) {
  try{
    return ProductListResult.fromJson(json.decode(str));
- }catch(e,s){
-   debugPrintStack(stackTrace: s,label: 'model/product_list_result.dart:$e');
-   throw AppException.appError();
+ }catch(_){
+   throw const BaseApiException.businessException(message: '转换数据异常');
  }
 }
 String productListToJson(ProductListResult data) => json.encode(data.toJson());

@@ -2,7 +2,7 @@
 //
 //     final ddTaokeResult = ddTaokeResultFromJson(jsonString);
 
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 DdTaokeResult ddTaokeResultFromJson(String str) => DdTaokeResult.fromJson(json.decode(str));
 

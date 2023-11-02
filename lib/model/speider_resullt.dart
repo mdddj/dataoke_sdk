@@ -1,7 +1,7 @@
 // To parse this JSON data, do
 //
 //     final speiderResult = speiderResultFromJson(jsonString);
-part of dataoke_sdk;
+part of '../dataoke_sdk.dart';
 
 SpeiderResult speiderResultFromJson(String str) => SpeiderResult.fromJson(json.decode(str));
 
