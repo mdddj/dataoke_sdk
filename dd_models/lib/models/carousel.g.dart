@@ -6,7 +6,8 @@ part of 'carousel.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Carousel _$$_CarouselFromJson(Map<String, dynamic> json) => _$_Carousel(
+_$CarouselImpl _$$CarouselImplFromJson(Map<String, dynamic> json) =>
+    _$CarouselImpl(
       topicImage: json['topicImage'] as String? ?? '',
       activityId: json['activityId'] as String? ?? '',
       topicId: json['topicId'] as int? ?? 0,
@@ -15,7 +16,7 @@ _$_Carousel _$$_CarouselFromJson(Map<String, dynamic> json) => _$_Carousel(
       topicName: json['topicName'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_CarouselToJson(_$_Carousel instance) =>
+Map<String, dynamic> _$$CarouselImplToJson(_$CarouselImpl instance) =>
     <String, dynamic>{
       'topicImage': instance.topicImage,
       'activityId': instance.activityId,

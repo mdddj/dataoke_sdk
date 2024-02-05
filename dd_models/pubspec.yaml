@@ -1,6 +1,6 @@
 name: dd_models
 description: diandian de model with flutter plugin
-version: 0.0.5
+version: 0.1.0
 homepage: https://github.com/mdddj/dataoke_sdk
 
 environment:
@@ -14,18 +14,20 @@ dependencies:
     sdk: flutter
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
-  plugin_platform_interface: ^2.1.5
-  fast_immutable_collections: ^9.1.5
+  plugin_platform_interface: ^2.1.8
+  fast_immutable_collections: ^10.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.2
-  build_runner: ^2.4.6
-  freezed: ^2.4.1
+  flutter_lints: ^3.0.1
+  build_runner: ^2.4.8
+  freezed: ^2.4.6
   json_serializable: ^6.7.1
 
 
+dependency_overrides:
+  watcher: ^1.1.0
 
 flutter:
   plugin:

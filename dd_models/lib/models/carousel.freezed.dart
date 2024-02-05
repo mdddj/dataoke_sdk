@@ -97,10 +97,11 @@ class _$CarouselCopyWithImpl<$Res, $Val extends Carousel>
 }
 
 /// @nodoc
-abstract class _$$_CarouselCopyWith<$Res> implements $CarouselCopyWith<$Res> {
-  factory _$$_CarouselCopyWith(
-          _$_Carousel value, $Res Function(_$_Carousel) then) =
-      __$$_CarouselCopyWithImpl<$Res>;
+abstract class _$$CarouselImplCopyWith<$Res>
+    implements $CarouselCopyWith<$Res> {
+  factory _$$CarouselImplCopyWith(
+          _$CarouselImpl value, $Res Function(_$CarouselImpl) then) =
+      __$$CarouselImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -113,11 +114,11 @@ abstract class _$$_CarouselCopyWith<$Res> implements $CarouselCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CarouselCopyWithImpl<$Res>
-    extends _$CarouselCopyWithImpl<$Res, _$_Carousel>
-    implements _$$_CarouselCopyWith<$Res> {
-  __$$_CarouselCopyWithImpl(
-      _$_Carousel _value, $Res Function(_$_Carousel) _then)
+class __$$CarouselImplCopyWithImpl<$Res>
+    extends _$CarouselCopyWithImpl<$Res, _$CarouselImpl>
+    implements _$$CarouselImplCopyWith<$Res> {
+  __$$CarouselImplCopyWithImpl(
+      _$CarouselImpl _value, $Res Function(_$CarouselImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +131,7 @@ class __$$_CarouselCopyWithImpl<$Res>
     Object? link = null,
     Object? topicName = null,
   }) {
-    return _then(_$_Carousel(
+    return _then(_$CarouselImpl(
       topicImage: null == topicImage
           ? _value.topicImage
           : topicImage // ignore: cast_nullable_to_non_nullable
@@ -161,8 +162,8 @@ class __$$_CarouselCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Carousel extends _Carousel {
-  const _$_Carousel(
+class _$CarouselImpl extends _Carousel {
+  const _$CarouselImpl(
       {this.topicImage = '',
       this.activityId = '',
       this.topicId = 0,
@@ -171,8 +172,8 @@ class _$_Carousel extends _Carousel {
       this.topicName = ''})
       : super._();
 
-  factory _$_Carousel.fromJson(Map<String, dynamic> json) =>
-      _$$_CarouselFromJson(json);
+  factory _$CarouselImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CarouselImplFromJson(json);
 
   @override
   @JsonKey()
@@ -199,10 +200,10 @@ class _$_Carousel extends _Carousel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Carousel &&
+            other is _$CarouselImpl &&
             (identical(other.topicImage, topicImage) ||
                 other.topicImage == topicImage) &&
             (identical(other.activityId, activityId) ||
@@ -223,12 +224,12 @@ class _$_Carousel extends _Carousel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CarouselCopyWith<_$_Carousel> get copyWith =>
-      __$$_CarouselCopyWithImpl<_$_Carousel>(this, _$identity);
+  _$$CarouselImplCopyWith<_$CarouselImpl> get copyWith =>
+      __$$CarouselImplCopyWithImpl<_$CarouselImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CarouselToJson(
+    return _$$CarouselImplToJson(
       this,
     );
   }
@@ -241,10 +242,11 @@ abstract class _Carousel extends Carousel {
       final int topicId,
       final int sourceType,
       final String link,
-      final String topicName}) = _$_Carousel;
+      final String topicName}) = _$CarouselImpl;
   const _Carousel._() : super._();
 
-  factory _Carousel.fromJson(Map<String, dynamic> json) = _$_Carousel.fromJson;
+  factory _Carousel.fromJson(Map<String, dynamic> json) =
+      _$CarouselImpl.fromJson;
 
   @override
   String get topicImage;
@@ -260,6 +262,6 @@ abstract class _Carousel extends Carousel {
   String get topicName;
   @override
   @JsonKey(ignore: true)
-  _$$_CarouselCopyWith<_$_Carousel> get copyWith =>
+  _$$CarouselImplCopyWith<_$CarouselImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,3 +1,11 @@
+## 0.1.0
+
+依赖升级
+
+## 0.0.6
+
+* update model
+
 ## 0.0.5
 
 * update model

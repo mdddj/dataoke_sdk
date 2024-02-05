@@ -164,7 +164,7 @@ _$CategoryWrapperImpl _$$CategoryWrapperImplFromJson(
         Map<String, dynamic> json) =>
     _$CategoryWrapperImpl(
       categorys: (json['categorys'] as List<dynamic>?)
-              ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
+              ?.map(Category.fromJson)
               .toList() ??
           const [],
     );

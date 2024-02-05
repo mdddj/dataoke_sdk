@@ -1,18 +1,45 @@
+import 'package:dd_models/models/product.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part of '../dataoke_sdk.dart';
+part 'detail_base_data.freezed.dart';
 
-class DetailBaseDataResult {
-  Product? info; // 商品的基本信息
-  List<Product>? similarProducts; // 相似列表,默认10条
-  CouponLinkResult? couponInfo; // 领券相关
+part 'detail_base_data.g.dart';
 
-  DetailBaseDataResult({this.info, this.couponInfo, this.similarProducts});
+@freezed
+class DetailBaseDataResult with _$DetailBaseDataResult {
+  const DetailBaseDataResult._();
 
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'info': jsonEncode(info),
-      'similarProducts': jsonEncode(similarProducts),
-      'couponInfo': couponInfo.toString()
-    };
-  }
+  const factory DetailBaseDataResult({
+    @JsonKey(name: 'detail') required Product info,
+    @JsonKey(name: 'similarList') @Default([]) List<Product> similarProducts,
+    @JsonKey(name: 'privilegeLink') @Default(CouponLinkResult()) CouponLinkResult couponInfo,
+  }) = _DetailBaseDataResult;
+
+  factory DetailBaseDataResult.fromJson(Map<String, dynamic> json) => _$DetailBaseDataResultFromJson(json);
+}
+
+@freezed
+class CouponLinkResult with _$CouponLinkResult {
+  const CouponLinkResult._();
+
+  const factory CouponLinkResult({
+    @Default('') String? couponRemainCount,
+    @Default('') String? kuaiZhanUrl,
+    @Default('') String? minCommissionRate,
+    @Default(0) num originalPrice,
+    @Default('') String? couponInfo,
+    @Default(0) num actualPrice,
+    @Default('') String? shortUrl,
+    @Default('') String? maxCommissionRate,
+    @Default('') String? couponEndTime,
+    @Default('') String? couponTotalCount,
+    @Default('') String? itemId,
+    @Default('') String? couponStartTime,
+    @Default('') String? couponClickUrl,
+    @Default('') String? itemUrl,
+    @Default('') String? longTpwd,
+    @Default('') String? tpwd,
+  }) = _CouponLinkResult;
+
+  factory CouponLinkResult.fromJson(Map<String, dynamic> json) => _$CouponLinkResultFromJson(json);
 }

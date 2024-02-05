@@ -6,17 +6,18 @@ part of 'product.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
+_$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
+    _$ProductImpl(
       teamName: json['teamName'] as String? ?? '',
-      tbcid: json['tbcid'] as int? ?? 0,
+      tbcid: json['tbcid'] as num? ?? 0,
       shipPercent: json['shipPercent'] as num? ?? 0,
       itemLink: json['itemLink'] as String? ?? '',
-      freeshipRemoteDistrict: json['freeshipRemoteDistrict'] as int? ?? 0,
-      yunfeixian: json['yunfeixian'] as int? ?? 0,
-      goldSellers: json['goldSellers'] as int? ?? 0,
+      freeshipRemoteDistrict: json['freeshipRemoteDistrict'] as num? ?? 0,
+      yunfeixian: json['yunfeixian'] as num? ?? 0,
+      goldSellers: json['goldSellers'] as num? ?? 0,
       reimgs: json['reimgs'] as String? ?? '',
       couponLink: json['couponLink'] as String? ?? '',
-      haitao: json['haitao'] as int? ?? 0,
+      haitao: json['haitao'] as num? ?? 0,
       sellerId: json['sellerId'] as String? ?? '',
       discounts: json['discounts'] as num? ?? 0,
       directCommissionLink: json['directCommissionLink'] as String? ?? '',
@@ -77,7 +78,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       specialText: json['specialText'] as List<dynamic>? ?? const [],
     );
 
-Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
+Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
     <String, dynamic>{
       'teamName': instance.teamName,
       'tbcid': instance.tbcid,

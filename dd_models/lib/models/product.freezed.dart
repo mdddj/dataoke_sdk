@@ -21,15 +21,15 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Product {
   String get teamName => throw _privateConstructorUsedError;
-  int get tbcid => throw _privateConstructorUsedError;
+  num get tbcid => throw _privateConstructorUsedError;
   num get shipPercent => throw _privateConstructorUsedError;
   String get itemLink => throw _privateConstructorUsedError;
-  int get freeshipRemoteDistrict => throw _privateConstructorUsedError;
-  int get yunfeixian => throw _privateConstructorUsedError;
-  int get goldSellers => throw _privateConstructorUsedError;
+  num get freeshipRemoteDistrict => throw _privateConstructorUsedError;
+  num get yunfeixian => throw _privateConstructorUsedError;
+  num get goldSellers => throw _privateConstructorUsedError;
   String get reimgs => throw _privateConstructorUsedError;
   String get couponLink => throw _privateConstructorUsedError;
-  int get haitao => throw _privateConstructorUsedError;
+  num get haitao => throw _privateConstructorUsedError;
   String get sellerId => throw _privateConstructorUsedError;
   num get discounts => throw _privateConstructorUsedError;
   String get directCommissionLink => throw _privateConstructorUsedError;
@@ -101,15 +101,15 @@ abstract class $ProductCopyWith<$Res> {
   @useResult
   $Res call(
       {String teamName,
-      int tbcid,
+      num tbcid,
       num shipPercent,
       String itemLink,
-      int freeshipRemoteDistrict,
-      int yunfeixian,
-      int goldSellers,
+      num freeshipRemoteDistrict,
+      num yunfeixian,
+      num goldSellers,
       String reimgs,
       String couponLink,
-      int haitao,
+      num haitao,
       String sellerId,
       num discounts,
       String directCommissionLink,
@@ -260,7 +260,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       tbcid: null == tbcid
           ? _value.tbcid
           : tbcid // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       shipPercent: null == shipPercent
           ? _value.shipPercent
           : shipPercent // ignore: cast_nullable_to_non_nullable
@@ -272,15 +272,15 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       freeshipRemoteDistrict: null == freeshipRemoteDistrict
           ? _value.freeshipRemoteDistrict
           : freeshipRemoteDistrict // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       yunfeixian: null == yunfeixian
           ? _value.yunfeixian
           : yunfeixian // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       goldSellers: null == goldSellers
           ? _value.goldSellers
           : goldSellers // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       reimgs: null == reimgs
           ? _value.reimgs
           : reimgs // ignore: cast_nullable_to_non_nullable
@@ -292,7 +292,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       haitao: null == haitao
           ? _value.haitao
           : haitao // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       sellerId: null == sellerId
           ? _value.sellerId
           : sellerId // ignore: cast_nullable_to_non_nullable
@@ -530,23 +530,23 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 }
 
 /// @nodoc
-abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$_ProductCopyWith(
-          _$_Product value, $Res Function(_$_Product) then) =
-      __$$_ProductCopyWithImpl<$Res>;
+abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
+  factory _$$ProductImplCopyWith(
+          _$ProductImpl value, $Res Function(_$ProductImpl) then) =
+      __$$ProductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String teamName,
-      int tbcid,
+      num tbcid,
       num shipPercent,
       String itemLink,
-      int freeshipRemoteDistrict,
-      int yunfeixian,
-      int goldSellers,
+      num freeshipRemoteDistrict,
+      num yunfeixian,
+      num goldSellers,
       String reimgs,
       String couponLink,
-      int haitao,
+      num haitao,
       String sellerId,
       num discounts,
       String directCommissionLink,
@@ -608,10 +608,11 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ProductCopyWithImpl<$Res>
-    extends _$ProductCopyWithImpl<$Res, _$_Product>
-    implements _$$_ProductCopyWith<$Res> {
-  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
+class __$$ProductImplCopyWithImpl<$Res>
+    extends _$ProductCopyWithImpl<$Res, _$ProductImpl>
+    implements _$$ProductImplCopyWith<$Res> {
+  __$$ProductImplCopyWithImpl(
+      _$ProductImpl _value, $Res Function(_$ProductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -686,7 +687,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? circleText = null,
     Object? specialText = null,
   }) {
-    return _then(_$_Product(
+    return _then(_$ProductImpl(
       teamName: null == teamName
           ? _value.teamName
           : teamName // ignore: cast_nullable_to_non_nullable
@@ -694,7 +695,7 @@ class __$$_ProductCopyWithImpl<$Res>
       tbcid: null == tbcid
           ? _value.tbcid
           : tbcid // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       shipPercent: null == shipPercent
           ? _value.shipPercent
           : shipPercent // ignore: cast_nullable_to_non_nullable
@@ -706,15 +707,15 @@ class __$$_ProductCopyWithImpl<$Res>
       freeshipRemoteDistrict: null == freeshipRemoteDistrict
           ? _value.freeshipRemoteDistrict
           : freeshipRemoteDistrict // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       yunfeixian: null == yunfeixian
           ? _value.yunfeixian
           : yunfeixian // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       goldSellers: null == goldSellers
           ? _value.goldSellers
           : goldSellers // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       reimgs: null == reimgs
           ? _value.reimgs
           : reimgs // ignore: cast_nullable_to_non_nullable
@@ -726,7 +727,7 @@ class __$$_ProductCopyWithImpl<$Res>
       haitao: null == haitao
           ? _value.haitao
           : haitao // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       sellerId: null == sellerId
           ? _value.sellerId
           : sellerId // ignore: cast_nullable_to_non_nullable
@@ -965,8 +966,8 @@ class __$$_ProductCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Product implements _Product {
-  const _$_Product(
+class _$ProductImpl implements _Product {
+  const _$ProductImpl(
       {this.teamName = '',
       this.tbcid = 0,
       this.shipPercent = 0,
@@ -1038,15 +1039,15 @@ class _$_Product implements _Product {
       : _subcid = subcid,
         _specialText = specialText;
 
-  factory _$_Product.fromJson(Map<String, dynamic> json) =>
-      _$$_ProductFromJson(json);
+  factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProductImplFromJson(json);
 
   @override
   @JsonKey()
   final String teamName;
   @override
   @JsonKey()
-  final int tbcid;
+  final num tbcid;
   @override
   @JsonKey()
   final num shipPercent;
@@ -1055,13 +1056,13 @@ class _$_Product implements _Product {
   final String itemLink;
   @override
   @JsonKey()
-  final int freeshipRemoteDistrict;
+  final num freeshipRemoteDistrict;
   @override
   @JsonKey()
-  final int yunfeixian;
+  final num yunfeixian;
   @override
   @JsonKey()
-  final int goldSellers;
+  final num goldSellers;
   @override
   @JsonKey()
   final String reimgs;
@@ -1070,7 +1071,7 @@ class _$_Product implements _Product {
   final String couponLink;
   @override
   @JsonKey()
-  final int haitao;
+  final num haitao;
   @override
   @JsonKey()
   final String sellerId;
@@ -1262,10 +1263,10 @@ class _$_Product implements _Product {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Product &&
+            other is _$ProductImpl &&
             (identical(other.teamName, teamName) ||
                 other.teamName == teamName) &&
             (identical(other.tbcid, tbcid) || other.tbcid == tbcid) &&
@@ -1456,12 +1457,12 @@ class _$_Product implements _Product {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
-      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
+  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
+      __$$ProductImplCopyWithImpl<_$ProductImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductToJson(
+    return _$$ProductImplToJson(
       this,
     );
   }
@@ -1470,15 +1471,15 @@ class _$_Product implements _Product {
 abstract class _Product implements Product {
   const factory _Product(
       {final String teamName,
-      final int tbcid,
+      final num tbcid,
       final num shipPercent,
       final String itemLink,
-      final int freeshipRemoteDistrict,
-      final int yunfeixian,
-      final int goldSellers,
+      final num freeshipRemoteDistrict,
+      final num yunfeixian,
+      final num goldSellers,
       final String reimgs,
       final String couponLink,
-      final int haitao,
+      final num haitao,
       final String sellerId,
       final num discounts,
       final String directCommissionLink,
@@ -1536,30 +1537,30 @@ abstract class _Product implements Product {
       final String createTime,
       final String subdivisionName,
       final String circleText,
-      final List<dynamic> specialText}) = _$_Product;
+      final List<dynamic> specialText}) = _$ProductImpl;
 
-  factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
+  factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
 
   @override
   String get teamName;
   @override
-  int get tbcid;
+  num get tbcid;
   @override
   num get shipPercent;
   @override
   String get itemLink;
   @override
-  int get freeshipRemoteDistrict;
+  num get freeshipRemoteDistrict;
   @override
-  int get yunfeixian;
+  num get yunfeixian;
   @override
-  int get goldSellers;
+  num get goldSellers;
   @override
   String get reimgs;
   @override
   String get couponLink;
   @override
-  int get haitao;
+  num get haitao;
   @override
   String get sellerId;
   @override
@@ -1678,6 +1679,6 @@ abstract class _Product implements Product {
   List<dynamic> get specialText;
   @override
   @JsonKey(ignore: true)
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
+  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

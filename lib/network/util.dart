@@ -5,7 +5,6 @@ extension DartTypeModelEx3 on DartTypeModel {
   void throwBizError() {
     whenOrNull(
       json: (value) {
-        Logger().t(value);
         if (value.json.getValue('success') == false) {
           throw BaseApiException.businessException(message: value['message']);
         }
@@ -35,7 +34,7 @@ class TKBaseApi extends BaseApi<DartTypeModel> {
 
 
   @override
-  Future<BaseOptions> get getOptions async => opt;
+  Future<BaseOptions>  getOptions(RequestParams param) async => opt;
 
   @override
   DartTypeModel covertToModel(DartTypeModel data, RequestParams param) {
